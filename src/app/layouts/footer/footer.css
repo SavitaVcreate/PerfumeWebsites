@@ -1,0 +1,242 @@
+.footer-section {
+    background: #080604;
+    padding: 70px 0 25px;
+    color: #fff;
+}
+
+.footer-logo img {
+    width: 62px;
+    margin-bottom: 20px;
+}
+
+.footer-logo p {
+    color: #9f9f9f;
+    font-size: 14px;
+    line-height: 28px;
+    max-width: 270px;
+    margin-bottom: 30px;
+}
+
+.footer-links h6,
+.footer-contact h6 {
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.footer-links ul,
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    color: #b5b5b5;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.footer-links ul li a:hover {
+    color: #c9a96e;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #b5b5b5;
+    margin-bottom: 18px;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.footer-contact i {
+    color: #c9a96e;
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 14px;
+}
+
+.social-icons a {
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(201,169,110,.35);
+    border-radius: 50%;
+    color: #c9a96e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.social-icons a:hover {
+    background: #c9a96e;
+    color: #080604;
+}
+
+.footer-section hr {
+    border-color: rgba(255,255,255,.08);
+    margin: 55px 0 25px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #6f6f6f;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.footer-policy {
+    display: flex;
+    gap: 28px;
+}
+
+.footer-policy a {
+    text-decoration: none;
+    color: #6f6f6f;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.footer-policy a:hover {
+    color: #c9a96e;
+}
+
+@media (max-width:991px) {
+
+    .footer-section {
+        padding: 60px 0 20px;
+    }
+
+    .footer-logo,
+    .footer-links,
+    .footer-contact {
+        text-align: center;
+    }
+
+    .footer-logo p {
+        margin: 0 auto 25px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .footer-contact li {
+        justify-content: center;
+    }
+}
+
+@media (max-width:767px) {
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-policy {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+
+/* Sticky WhatsApp Button */
+.whatsapp-sticky {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 34px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    z-index: 9999;
+    transition: all .3s ease;
+    animation: whatsappPulse 2s infinite;
+}
+
+.whatsapp-sticky:hover {
+    background: #1ebe5d;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+@keyframes whatsappPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37,211,102,.6);
+    }
+    70% {
+        box-shadow: 0 0 0 18px rgba(37,211,102,0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37,211,102,0);
+    }
+}
+
+/* Mobile */
+@media (max-width:768px){
+    .whatsapp-sticky{
+        width:55px;
+        height:55px;
+        font-size:30px;
+        bottom:20px;
+        right:20px;
+    }
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+  color: #777;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.footer-links ul li a:hover {
+  color: #d7b05a;
+  text-decoration: underline;
+}
+
+/* Active page */
+.footer-links ul li a.active-link {
+  color: #d7b05a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}

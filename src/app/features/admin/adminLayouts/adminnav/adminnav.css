@@ -1,0 +1,193 @@
+.dashboard-navbar {
+    background: #fff;
+    padding: 18px 28px;
+}
+
+.page-title {
+    color: #423301;
+    font-size: 28px;
+    margin: 0;
+}
+
+.search-box {
+    position: relative;
+    width: 380px;
+    max-width: 100%;
+}
+
+.search-box input {
+    height: 48px;
+    border: none;
+    border-radius: 30px;
+    background: #f6f6f6;
+    padding-left: 22px;
+    padding-right: 45px;
+    box-shadow: none;
+}
+
+.search-box i {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    font-size: 20px;
+}
+
+.icon-btn {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    position: relative;
+}
+
+.icon-btn:hover {
+    background: #f4f4f4;
+}
+
+.notification-dot {
+    width: 8px;
+    height: 8px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.theme-btn {
+    width: 54px;
+    height: 34px;
+    border: none;
+    background: #E4B647;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.dropdown-menu {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    z-index: 99999;
+}
+
+.dashboard-navbar,
+.container-fluid {
+    overflow: visible !important;
+}
+
+/* ===========================
+   Tablet (≤991px)
+=========================== */
+
+@media (max-width:991px) {
+
+    .dashboard-navbar {
+        padding: 15px;
+    }
+
+    .page-title {
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 24px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .dashboard-navbar .d-flex {
+        justify-content: center !important;
+        flex-wrap: wrap;
+        gap: 12px !important;
+    }
+
+}
+
+/* ===========================
+   Mobile (≤767px)
+=========================== */
+
+@media (max-width:767px) {
+
+    .dashboard-navbar {
+        padding: 12px;
+    }
+
+    .page-title {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .search-box {
+        width: 100%;
+        order: 1;
+    }
+
+    .search-box input {
+        height: 45px;
+    }
+
+    .icon-btn,
+    .theme-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .profile-image {
+        width: 36px;
+        height: 36px;
+    }
+
+    #profileDropdown h6,
+    #profileDropdown small {
+        display: none;
+    }
+
+    .dashboard-navbar .d-flex {
+        width: 100%;
+        justify-content: center !important;
+    }
+
+}
+
+/* ===========================
+   Small Mobile (≤576px)
+=========================== */
+
+@media (max-width:576px) {
+
+    .page-title {
+        font-size: 20px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .dashboard-navbar .d-flex {
+        gap: 10px !important;
+    }
+
+    .theme-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+}

@@ -1,0 +1,67 @@
+
+ .pagination{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    gap:10px;
+    /* margin-top:40px; */
+}
+
+.pagination li a{
+    width:32px;
+    height:32px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #d7d7d7;
+    border-radius:50%;
+    color:#444;
+    text-decoration:none;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.pagination li a:hover{
+    background:#D8A52C;
+    color:#fff;
+    border-color:#D8A52C;
+}
+
+.pagination li a.active{
+    background:#D8A52C;
+    color:#fff;
+    border-color:#D8A52C;
+    font-weight:600;
+}
+.applied-filters{
+    border-bottom:1px solid #ececec;
+    padding-bottom:15px;
+    margin-bottom:15px;
+}
+
+.filter-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.filter-chip{
+    display:inline-flex;
+    align-items:center;
+    background:#f2f2f2;
+    border-radius:8px;
+    padding:8px 14px;
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+.filter-chip i{
+    font-size:12px;
+    cursor:pointer;
+    color:#333;
+}
+
+.filter-chip:hover{
+    background:#e8e8e8;
+}

@@ -1,0 +1,216 @@
+<div class="container-fluid py-4 add-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="checkout-steps">
+                            <div class="step completed">
+                                <div class="circle">✓</div>
+                                <p>Address</p>
+                            </div>
+                            <div class="line active"></div>
+                            <div class="step active">
+                                <div class="circle">2</div>
+                                <p>Order Summary</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="step">
+                                <div class="circle">3</div>
+                                <p>Payment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div *ngIf="selectedAddress">
+                                <h5>Deliver To</h5>
+                                <h6> {{selectedAddress.fullName}}
+                                    <span class="badge bg-secondary">
+                                        {{selectedAddress.addressType}}
+                                    </span>
+                                </h6>
+                                <p class="text-muted mb-1">
+                                    {{selectedAddress.address}}
+                                </p>
+                                <p class="text-muted mb-1"> {{selectedAddress.locality}}, {{selectedAddress.city}},
+                                    {{selectedAddress.state}} - {{selectedAddress.pincode}}
+                                </p>
+                                <strong> {{selectedAddress.mobileNo}}
+                                </strong>
+                                <span *ngIf="selectedAddress.alternatePhone"> | {{selectedAddress.alternatePhone}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card shadow-sm mb-3" *ngFor="let item of cartItems">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-lg-3 text-center">
+                                <img [src]="'http://localhost:5000/uploads/profile/' + item.productId.mainImage"
+                                    class="img-fluid rounded" width="170">
+                            </div>
+                            <div class="col-lg-6">
+                                <h5>
+                                    {{item.productId.productName}}
+                                </h5>
+                                <p class="text-muted">
+                                    {{item.productId.brand}}
+                                </p>
+                                <p>
+                                    {{item.productId.volume}}
+                                    |
+                                    {{item.productId.concentration}}
+                                    |
+                                    {{item.productId.fragranceFamily}}
+                                </p>
+                                <div class="rating">
+                                    ★★★★☆
+                                    <span>
+                                        4.8
+                                    </span>
+                                </div>
+                                <h3 class="mt-3">
+                                    <span class="discount  fw-bold">
+                                        {{item.productId.discount}}% OFF
+                                    </span>
+                                    <span class="old-price">
+                                        <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                                            style="width:20px,">
+                                        {{item.productId.mrp}}
+                                    </span>
+                                    <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                                        style="width:20px,">
+                                    {{item.productId.sellingPrice}}
+                                </h3>
+                                <p class="mt-3">
+                                    Quantity :
+                                    <strong>
+                                        {{item.quantity}}
+                                    </strong>
+                                </p>
+                            </div>
+                            <div class="col-lg-3">
+                                <p>Delivery by<strong> Tomorrow</strong>
+                                </p>
+                                <p class="text-success"> Free Delivery
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card shadow-sm sticky-top">
+                    <div class="card-body">
+                        <h5 class="text-muted mb-4"> PRICE DETAILS
+                        </h5>
+                        <div class="price-row"><span> Price ({{cartItems.length}} Items)</span>
+                            <span> <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                                    style="width:20px,"> {{getSubTotal()}}
+                            </span>
+                        </div>
+                        <div class="price-row"> <span> Discount </span>
+                            <span class="text-success">
+                                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                                    style="width:20px,"> -{{getDiscount()}}
+                            </span>
+                        </div>
+                        <div class="price-row">
+                            <span> Delivery Charges</span>
+                            <span class="text-success"> FREE</span>
+                        </div>
+                        <!-- <div class="price-row">
+
+                            <span>
+
+                                Platform Fee
+
+                            </span>
+
+                            <span>
+
+                                                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+9
+
+                            </span>
+
+                        </div> -->
+                        <hr>
+                        <div class="price-row total">
+                            <strong> Total Payable </strong> <strong>
+                                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                                    style="width:20px,"> {{getTotal()}}
+                            </strong>
+                        </div>
+                        <hr>
+                        <div class="save-box"> You will save
+                            <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                                style="width:20px,"> {{getDiscount()}} on this order.
+                        </div>
+                        <div class="card mt-3 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="mb-3 fw-bold">Payment Method</h5>
+                                <div class="form-check">
+                                    <input type="radio" value="razorpay" [(ngModel)]="paymentMethod">
+                                    Pay Online
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" value="cod" [(ngModel)]="paymentMethod">
+                                    Cash On Delivery
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-5">
+                                <button class="btn continue-btn w-100" (click)="continuePayment()">
+                                    CONTINUE
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- COD Confirmation Modal -->
+<div class="modal fade" id="codModal" tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Confirm Cash On Delivery
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="/assets/logo/cod.svg" width="200px">
+                <h5 class="mt-3">
+                    Pay when your order arrives.
+                </h5>
+                <p>
+                    Do you want to place this Cash On Delivery order?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cancel
+                </button>
+                <button class="btn btn-warning" (click)="confirmCOD()">
+                    Confirm Order
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

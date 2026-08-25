@@ -1,1 +1,50 @@
-<p>sidebar works!</p>
+<div class="profile-card mt-3">
+    <div class="d-flex align-items-center">
+        <img src="assets/logo/profile-pic-male.svg" class="profile-img" alt="Profile">
+        <div class="ms-3">
+            <small>Hello,</small>
+            <h5>{{user.fullName}}</h5>
+        </div>
+    </div>
+</div>
+<div class="sidebar mt-5">
+    <div class="sidebar-item">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <i class="bi bi-bag-fill me-2"></i>
+                <span>MY ORDERS</span>
+            </div>
+            <i class="bi bi-chevron-right"></i>
+        </div>
+    </div>
+    <div class="sidebar-title">
+        <i class="bi bi-person-fill"></i> ACCOUNT SETTINGS
+    </div>
+    <ul class="sidebar-menu">
+        <ul class="account-menu">
+            <li routerLink="/auth/my-profile" routerLinkActive="active"> Profile Information </li>
+            <li routerLink="/auth/address" routerLinkActive="active">  Manage Addresses</li>
+        </ul>
+    </ul>
+    <div class="sidebar-title"> <i class="bi bi-wallet2"></i> PAYMENTS</div>
+    <ul class="sidebar-menu">
+        <li class="d-flex justify-content-between">
+            <span>Gift Cards</span>
+            <span class="text-success currency-value">
+                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icons" style="width:20px,">    0
+            </span>
+        </li>
+        <li> Saved UPI </li>
+        <li>  Saved Cards </li>
+    </ul>
+    <div class="sidebar-title"> <i class="bi bi-person-badge-fill"></i> MY STUFF </div>
+    <ul class="sidebar-menu">
+        <li>   My Coupons</li>
+        <li>   My Reviews & Ratings </li>
+        <li>   All Notifications</li>
+        <li routerLink="/wishlist" routerLinkActive="active">  My Wishlist </li>
+    </ul>
+    <div class="sidebar-item">
+        <i class="bi bi-box-arrow-right"></i> <span class="ms-2">Logout</span>
+    </div>
+</div>

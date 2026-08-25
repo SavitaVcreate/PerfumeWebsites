@@ -1,0 +1,403 @@
+<div class="container-fluid">
+    <div class="row">
+        <div >
+            <app-adminnav></app-adminnav>
+            <router-outlet></router-outlet>
+            <div class="container-fluid py-4" style="background-color: #F7F7F8;">
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Product Name</label>
+                                <input type="text" class="form-control custom-input " placeholder="Enter Product Name"
+                                    name="productName" [(ngModel)]="productData.productName">
+                            </div>
+
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Short Name</label>
+                                <input type="text" class="form-control custom-input " placeholder="Short Product Name"
+                                    name="shortName" [(ngModel)]="productData.shortName">
+                            </div>
+                            <!-- <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Gender</label>
+                                <select class="form-select" name="gender" [(ngModel)]="productData.gender">
+                                    <option value="">Select Gender</option>
+                                    <option>Men</option>
+                                    <option>Women</option>
+                                    <option>Unisex</option>
+                                </select>
+                            </div> -->
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Longevity</label>
+                                <input type="text" class="form-control custom-input " name="Longevity"
+                                    [(ngModel)]="productData.longevity" placeholder="Longevity">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold ">Country of Origin</label>
+                                <select class="form-select custom-input" [(ngModel)]="productData.countryOfOrigin">
+                                    <option>Select Country</option>
+                                    <option>France</option>
+                                    <option>Italy</option>
+                                    <option>USA</option>
+                                    <option>UAE</option>
+                                    <option>India</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Warranty</label>
+                                <input type="text" name="Warranty" [(ngModel)]="productData.warranty"
+                                    class="form-control custom-input " placeholder="Warranty Details">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Launch Date</label>
+                                <input type="date" [(ngModel)]="productData.launchDate" name="launchDate"
+                                    class="form-control custom-input ">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Shelf Life</label>
+                                <input type="text" name="shelfLife" [(ngModel)]="productData.shelfLife"
+                                    class="form-control custom-input" placeholder="36 Months">
+                            </div>
+                            <!-- <div class="row g-4"> -->
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Cost Price</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"> <img src="/assets/logo/Currency Symbol.jpg"
+                                            alt="AED" class="currency-icon" style="width:20px,">
+                                    </span>
+                                    <input type="number" class="form-control custom-input " name="costPrice"
+                                        [(ngModel)]="productData.costPrice" placeholder="0.00">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">MRP</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"> <img src="/assets/logo/Currency Symbol.jpg"
+                                            alt="AED" class="currency-icon" style="width:20px,">
+                                    </span>
+                                    <input type="number" name="mrp" [(ngModel)]="productData.mrp"
+                                        class="form-control custom-input " placeholder="0.00">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Selling Price</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"> <img src="/assets/logo/Currency Symbol.jpg"
+                                            alt="AED" class="currency-icon" style="width:20px,">
+                                    </span>
+                                    <input type="number" name="sellingPrice" [(ngModel)]="productData.sellingPrice"
+                                        class="form-control custom-input " placeholder="0.00">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Discount (%)</label>
+                                <div class="input-group">
+                                    <input type="number" name="discount" [(ngModel)]="productData.discount"
+                                        class="form-control custom-input " placeholder="0">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">GST (%)</label>
+                                <select class="form-select custom-input " [(ngModel)]="productData.gst">
+                                    <option>Select GST</option>
+                                    <option>0</option>
+                                    <option>5</option>
+                                    <option>12</option>
+                                    <option>18</option>
+                                    <option>28</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Stock Quantity</label>
+                                <input type="number" name="stockQuantity" [(ngModel)]="productData.stockQuantity"
+                                    class="form-control custom-input " placeholder="100">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Minimum Stock</label>
+                                <input type="number" name="minimum" [(ngModel)]="productData.minimumStock"
+                                    class="form-control custom-input " placeholder="10">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Maximum Stock</label>
+                                <input type="number" name="Maximum" [(ngModel)]="productData.maximumStock"
+                                    class="form-control custom-input" placeholder="500">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Stock Status</label>
+                                <select class="form-select custom-input " [(ngModel)]="productData.stockStatus">
+                                    <option>In Stock</option>
+                                    <option>Out Of Stock</option>
+                                    <option>Pre Order</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Availability</label>
+                                <select class="form-select custom-input" [(ngModel)]="productData.availability">
+                                    <option>Available</option>
+                                    <option>Limited Stock</option>
+                                    <option>Coming Soon</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Manufacturing Date</label>
+                                <input type="date" name="manufacturingDate" [(ngModel)]="productData.manufacturingDate"
+                                    class="form-control custom-input ">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Expiry Date</label>
+                                <input type="date" name="expiryDate" [(ngModel)]="productData.expiryDate"
+                                    class="form-control custom-input ">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Brand</label>
+                                <input type="text" class="form-control custom-input " name="brand"
+                                    [(ngModel)]="productData.brand" placeholder="Enter Brand Name">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Fragrance Family</label>
+                                <select class="form-select custom-input " name="fragranceFamily"
+                                    [(ngModel)]="productData.fragranceFamily">
+                                    <option value="">Select</option>
+                                    <option>Floral</option>
+                                    <option>Woody</option>
+                                    <option>Fresh</option>
+                                    <option>Oriental</option>
+                                    <option>Citrus</option>
+                                    <option>Fruity</option>
+                                    <option>Aquatic</option>
+                                    <option>Spicy</option>
+                                    <option>Gourmand</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Concentration</label>
+                                <select class="form-select custom-input " name="concentration"
+                                    [(ngModel)]="productData.concentration">
+                                    <option value="">Select</option>
+                                    <option>EDT</option>
+                                    <option>EDP</option>
+                                    <option>Parfum</option>
+                                    <option>EDC</option>
+                                    <option>Body Mist</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Volume</label>
+                                <select class="form-select custom-input" name="volume" [(ngModel)]="productData.volume">
+                                    <option value="">Select Volume</option>
+                                    <option>30 ml</option>
+                                    <option>50 ml</option>
+                                    <option>75 ml</option>
+                                    <option>100 ml</option>
+                                    <option>150 ml</option>
+                                    <option>200 ml</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Form</label>
+                                <select class="form-select custom-input" name="form" [(ngModel)]="productData.form">
+                                    <option value="">Select Form</option>
+                                    <option>Spray</option>
+                                    <option>Roll On</option>
+                                    <option>Mist</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Projection</label>
+                                <select class="form-select custom-input" name="projection"
+                                    [(ngModel)]="productData.projection">
+                                    <option value="">Select</option>
+                                    <option>Light</option>
+                                    <option>Moderate</option>
+                                    <option>Strong</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Top Notes</label>
+                                <input type="text" class="form-control custom-input" name="topNotes"
+                                    [(ngModel)]="productData.topNotes" placeholder="Bergamot, Lemon">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Middle Notes</label>
+                                <input type="text" class="form-control custom-input" name="middleNotes"
+                                    [(ngModel)]="productData.middleNotes" placeholder="Rose, Jasmine">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Base Notes</label>
+                                <input type="text" class="form-control custom-input" name="baseNotes"
+                                    [(ngModel)]="productData.baseNotes" placeholder="Vanilla, Musk">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Season</label>
+                                <select class="form-select custom-input" name="season" [(ngModel)]="productData.season">
+                                    <option value="">Select</option>
+                                    <option>Summer</option>
+                                    <option>Winter</option>
+                                    <option>Spring</option>
+                                    <option>Autumn</option>
+                                    <option>All Seasons</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Manufacturer</label>
+                                <input type="text" class="form-control custom-input" name="manufacturer"
+                                    [(ngModel)]="productData.manufacturer" placeholder="Manufacturer Name">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">SKU</label>
+                                <input type="text" class="form-control custom-input" name="sku"
+                                    [(ngModel)]="productData.sku" placeholder="SKU001">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Barcode</label>
+                                <input type="text" class="form-control custom-input" name="barcode"
+                                    [(ngModel)]="productData.barcode" placeholder="Barcode">
+                            </div>
+                            <div class="col-lg-4">
+                                <label class="form-label fw-semibold">Tags</label>
+                                <input type="text" class="form-control custom-input" name="tags"
+                                    [(ngModel)]="productData.tags" placeholder="Luxury, Premium">
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label fw-semibold">Ingredients</label>
+                                <textarea class="form-control custom-input" rows="3" name="ingredients"
+                                    [(ngModel)]="productData.ingredients" placeholder="Enter Ingredients"></textarea>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="form-label fw-semibold"> Description</label>
+                                <textarea rows="3" class="form-control custom-input" name="description"
+                                    [(ngModel)]="productData.description"
+                                    placeholder="Enter Short Description"></textarea>
+                            </div>
+                            <div class="col-lg-12">
+                                <label class="form-label fw-semibold d-block mb-2">Occasion</label>
+                                <div class="d-flex flex-wrap gap-3 custom-input ">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox"
+                                            (change)="toggleOccasion('Office',$event)">
+                                        <label class="form-check-label">Office</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox"
+                                            (change)="toggleOccasion('Party',$event)">
+                                        <label class="form-check-label">Party</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox"
+                                            (change)="toggleOccasion('Wedding',$event)">
+                                        <label class="form-check-label">Wedding</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox"
+                                            (change)="toggleOccasion('Daily Wear',$event)">
+                                        <label class="form-check-label">Daily Wear</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox"
+                                            (change)="toggleOccasion('Date Night',$event)">
+                                        <label class="form-check-label">Date Night</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <label class="form-label fw-semibold mb-2">Gender</label>
+                                <div class="d-flex flex-wrap custom-input  gap-3">
+                                    <div class="form-check  py-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="men"
+                                            (change)="toggleGender('Men', $event)">
+                                        <label class="form-check-label" for="men">
+                                            Men
+                                        </label>
+                                    </div>
+                                    <div class="form-check  py-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="women"
+                                            (change)="toggleGender('Women', $event)">
+                                        <label class="form-check-label" for="women">
+                                            Women
+                                        </label>
+                                    </div>
+                                    <div class="form-check  py-2">
+                                        <input class="form-check-input me-2" type="checkbox" id="unisex"
+                                            (change)="toggleGender('Unisex', $event)">
+                                        <label class="form-check-label" for="unisex">
+                                            Unisex
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-lg-4">
+                                    <div class="border rounded-4 p-4 h-100">
+                                        <h5 class="fw-bold text-center mb-4">
+                                            Main Product Image
+                                        </h5>
+                                        <div class="text-center mb-3">
+                                            <img [src]="mainImagePreview" class="img-fluid rounded shadow"
+                                                style="height:250px;width:250px;object-fit:cover;">
+                                        </div>
+                                        <input type="file" class="form-control" accept="image/*"
+                                            (change)="onMainImage($event)">
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="border rounded-4 p-4">
+                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <h5 class="fw-bold mb-0">
+                                                Gallery Images
+                                            </h5>
+                                            <label class="btn btn-color text-white">
+                                                <i class="bi bi-plus-circle me-2"></i>
+                                                Add Images
+                                                <input hidden type="file" multiple accept="image/*"
+                                                    (change)="onGalleryImages($event)">
+
+                                            </label>
+                                        </div>
+                                        <div class="border border-2 border-dashed rounded-4 text-center p-5">
+                                            <i class="bi bi-cloud-arrow-up display-3 text-warning">
+                                            </i>
+                                            <h5 class="mt-3">
+                                                Drag & Drop Images
+                                            </h5>
+                                            <p class="text-muted">
+                                                JPG, PNG, WEBP Supported
+                                            </p>
+                                            <input type="file" class="form-control" multiple accept="image/*"
+                                                (change)="onGalleryImages($event)">
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col-lg-3 col-md-4 col-6 mb-3"
+                                                *ngFor="let image of galleryPreview;let i=index">
+                                                <div class="card shadow-sm">
+                                                    <img [src]="image" class="card-img-top"
+                                                        style="height:180px;object-fit:cover;">
+                                                    <div class="card-body text-center">
+                                                        <button class="btn btn-danger btn-sm"
+                                                            (click)="removeGallery(i)">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end gap-2 mt-4">
+                                <button class="btn btn-outline-secondary">
+                                    Cancel
+                                </button>
+                                <button class="btn btn-color text-white" (click)="saveProduct()">
+                                    Save Product
+                                </button>
+
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

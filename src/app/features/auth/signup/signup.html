@@ -1,1 +1,100 @@
-<p>signup works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 bg-white">
+            <div class="d-flex justify-content-center">
+                <div class="w-100 p-2" style="max-width:450px;">
+                    <div class="text-center mb-4">
+                        <img src="assets/logo/logo.jpeg" class="rounded-circle" width="90" height="90">
+                        <h4 class="fw-bold mt-3"> Sign Up</h4>
+                    </div>
+                    <div class="d-flex gap-2 mb-3">
+                        <button
+                            class="btn btn-light border flex-fill d-flex align-items-center justify-content-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+                                width="18" height="18"><span>Google</span>
+                        </button>
+                        <button
+                            class="btn btn-light border flex-fill d-flex align-items-center justify-content-center gap-2">
+                            <i class="bi bi-facebook text-primary"></i><span>Facebook</span>
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center my-3">
+                        <hr class="flex-grow-1 m-0">
+                        <span class="px-3 text-muted fw-semibold">Or</span>
+                        <hr class="flex-grow-1 m-0">
+                    </div>
+                    <form>
+                        <!-- <div class="mb-3">
+                            <label class="form-label fw-medium">
+                                Full Name
+                            </label>
+                            <input type="text" class="form-control custom-input border-0"
+                                placeholder="Enter your full name" name="fullName" [(ngModel)]="registerData.fullName"
+                                required>
+
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-medium"> First Name </label>
+                                <input type="text" class="form-control custom-input border-0"
+                                    placeholder="Enter first name" name="firstName" [(ngModel)]="registerData.firstName"
+                                    required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-medium"> Last Name </label>
+                                <input type="text" class="form-control custom-input border-0"
+                                    placeholder="Enter last name" name="lastName" [(ngModel)]="registerData.lastName"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium">Email Address </label>
+                            <input type="email" class="form-control custom-input border-0"
+                                placeholder="example@gmail.com" name="email" [(ngModel)]="registerData.email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium"> Moblie No </label>
+                            <input type="text" class="form-control custom-input border-0" placeholder="1234567893"
+                                name="email" [(ngModel)]="registerData.moblieNo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium"> Password </label>
+                            <div class="input-group">
+                                <input [type]="showPassword ? 'text' : 'password'"
+                                    class="form-control custom-input border-0" placeholder="********" name="password"
+                                    [(ngModel)]="registerData.password" autocomplete="new-password" required>
+                                <span class="input-group-text eyes-cutom border-0" (click)="togglePassword()"
+                                    style="cursor:pointer">
+                                    <i class="bi fs-5 text-dark" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'">
+                                    </i> </span>
+                            </div>
+                            <div class="form-check pt-3">
+                                <input class="form-check-input" type="checkbox" id="acceptTerms" name="acceptTerms"
+                                    [(ngModel)]="registerData.acceptTerms" required>
+                                <label class="form-check-label" for="acceptTerms">
+                                    By creating an account you agree to the
+                                    <span class="text-primary">Terms of Use</span>
+                                    and our
+                                    <span class="text-primary">Privacy Policy</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="button" (click)="register()"
+                                class="btn btn-color text-white py-2 fw-semibold rounded-3">
+                                Create Account
+                            </button>
+                        </div>
+                    </form>
+                    <p class="text-center mt-2">
+                        Already have an account?
+                        <a class="text-primary" routerLink="/auth/login"> Log in </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img src="assets/logo/perfumes-1.jpeg" class="img-fluid ">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,152 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid orders-page">
+    <div class="row">
+        <div class="col-lg-3 mb-4">
+            <div class="filter-card">
+                <h4>Filters</h4>
+                <hr>
+                <h6>ORDER STATUS</h6>
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="selectedStatus.Pending"
+                        (change)="applyFilters()">
+                    <label class="form-check-label"> Pending</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="selectedStatus.Confirmed"
+                        (change)="applyFilters()">
+                    <label class="form-check-label"> Confirmed</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="selectedStatus.Packed"
+                        (change)="applyFilters()">
+                    <label class="form-check-label"> Packed </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="selectedStatus.Shipped"
+                        (change)="applyFilters()">
+                    <label class="form-check-label"> Shipped </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="selectedStatus.Delivered"
+                        (change)="applyFilters()">
+                    <label class="form-check-label"> Delivered</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="selectedStatus.Cancelled"
+                        (change)="applyFilters()">
+                    <label class="form-check-label"> Cancelled </label>
+                </div>
+                <hr>
+                <h6>ORDER TIME</h6>
+                <div class="form-check mt-3">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="selectedTime.last30"
+                        (change)="applyFilters()">
+                    <label class="form-check-label"> Last 30 Days </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="selectedTime.year2026"
+                        (change)="applyFilters()">
+                    <label class="form-check-label"> 2026 </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="selectedTime.year2025"
+                        (change)="applyFilters()">
+                    <label class="form-check-label"> 2025</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="search-box mb-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search your orders"
+                        (keyup.enter)="searchOrders()">
+                    <button class="btn btn-primary" (click)="searchOrders()"> Search </button>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-3" *ngIf="filteredOrders.length > 0">
+                <div class="text-white">Showing {{ ((currentPage - 1) * itemsPerPage) + 1 }} -{{ showingTo }}of {{
+                    filteredOrders.length }} orders
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <label class="mb-0 text-muted"> Show:</label>
+                    <select class="form-select form-select-sm" style="width: 80px" [value]="itemsPerPage"
+                        (change)="changeItemsPerPage($event)">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+            </div>
+            <div class="order-card mb-3" *ngFor="let order of paginatedOrders" (click)="viewOrderDetails(order._id)">
+                <div class="row align-items-center">
+                    <div class="col-md-2 col-4">
+                        <img [src]="'http://localhost:5000/uploads/profile/' +order.items[0]?.image "
+                            class="img-fluid product-img" alt="Product">
+                    </div>
+                    <div class="col-md-4 col-8 product-info">
+                        <h5 class="product-name"> {{ order.items[0]?.productName }} </h5>
+                        <p> Quantity: {{ order.items[0]?.quantity }} </p>
+                        <small> Payment: {{ order.paymentMethod }}</small>
+                    </div>
+                    <!-- <div class="col-md-4 col-8">
+                        <h5>{{ order.items[0]?.productName }} </h5>
+                        <p> Quantity :{{ order.items[0]?.quantity }} </p>
+                        <small> Payment : {{ order.paymentMethod }} </small>
+                    </div> -->
+                    <div class="col-md-2">
+                        <h5>
+                            <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icons"
+                                style="width:20px,"> {{ order.totalAmount }}
+                        </h5>
+                    </div>
+                    <div class="col-md-3">
+                        <div *ngIf="hasRefundStatus(order)" class="return-status"
+                            [ngClass]="getRefundStatusClass(order)"> <span class="status-dot">●</span> {{
+                            getRefundStatus(order) }}
+                        </div>
+                        <div *ngIf="!hasRefundStatus(order) && hasReturnStatus(order)" class="return-status"
+                            [ngClass]="getReturnStatusClass(order)"><span class="status-dot">●</span>{{
+                            getReturnStatus(order) }}
+                        </div>
+                        <div *ngIf="!hasRefundStatus(order) && !hasReturnStatus(order)" class="order-status"
+                            [ngClass]="getOrderStatusClass(order.orderStatus)"> <span class="status-dot">●</span> {{
+                            order.orderStatus }}
+                        </div>
+                        <small class="d-block mt-1"> {{ order.createdAt | date:'mediumDate' }} </small>
+                        <div *ngIf=" order.orderStatus === 'Delivered' && !hasRefundStatus(order) && !hasReturnStatus(order)"
+                            class="rate-review mt-2" (click)="writeReview(order)">
+                            <span class="stars"> <i class="bi bi-star-fill"></i> </span>
+                            <span class="rate-text">Rate & Review</span>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-3">
+                        <div *ngIf="hasReturnStatus(order); else normalOrderStatus" class="return-status"
+                            [ngClass]="getReturnStatusClass(order)"> <span class="status-dot">●</span>{{
+                            getReturnStatus(order) }}
+                        </div>
+                        <ng-template #normalOrderStatus>
+                            <div class="order-status" [ngClass]="getOrderStatusClass(order.orderStatus)">
+                                <span class="status-dot">●</span>{{ order.orderStatus }}
+                            </div>
+                        </ng-template>
+                        <small class="d-block mt-1"> {{ order.createdAt | date:'mediumDate' }} </small>
+                    </div> -->
+
+                    <div class="col-md-1 text-end">
+                        <i class="bi bi-chevron-right fs-4">
+                        </i>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center py-5" *ngIf="filteredOrders.length === 0">
+                <i class="bi bi-box-seam fs-1 text-muted"> </i>
+                <h5 class="mt-3"> No orders found</h5>
+                <p class="text-muted"> Try changing your search or filters. </p>
+            </div>
+            <app-pagination *ngIf="totalPages > 1" [currentPage]="currentPage" [totalPages]="totalPages"
+                (pageChange)="changePage($event)">
+            </app-pagination>
+        </div>
+    </div>
+</div>

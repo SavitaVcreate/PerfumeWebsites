@@ -1,0 +1,203 @@
+<div class="container-fluid">
+    <div class="row">
+        <div>
+            <app-adminnav (searchChanged)="searchProductsinAdmin($event)"></app-adminnav>
+            <router-outlet></router-outlet>
+            <div class="container-fluid py-4 dashboard-section">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card summary-card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6>Total Revenue</h6>
+                                                <div class="d-flex align-items-center mt-2">
+                                                    <h2>
+                                                        <img src="/assets/logo/Currency Symbol.jpg" alt="AED"
+                                                            class="currency-icon" style="width:20px,"> {{
+                                                        transactionDashboard.totalRevenue || 0 }}
+                                                    </h2>
+                                                    <span class="text-success ms-2"> <i class="bi bi-arrow-up"></i> {{
+                                                        transactionDashboard.revenueGrowth || 0 }} </span>
+                                                </div>
+                                                <small>Last 7 days</small>
+                                            </div>
+                                            <button class="option-btn"> <i
+                                                    class="bi bi-three-dots-vertical"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card summary-card active-card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6>Completed Transactions</h6>
+                                                <div class="d-flex align-items-center mt-2">
+                                                    <h2> {{ transactionDashboard.completedTransactions || 0 }} </h2>
+                                                    <span class="text-success ms-2"> <i class="bi bi-arrow-up"></i>
+                                                        {{transactionDashboard.completedGrowth || 0 }}%</span>
+                                                </div>
+                                                <small>Last 7 days</small>
+                                            </div>
+                                            <button class="option-btn"> <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card summary-card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6>Pending Transactions</h6>
+                                                <div class="d-flex align-items-center mt-2">
+                                                    <h2> {{ transactionDashboard.pendingTransactions || 0 }} </h2>
+                                                    <span class="text-success ms-2">
+                                                        <i class="bi bi-arrow-up"></i> {{
+                                                        transactionDashboard.pendingGrowth || 0 }}%</span>
+                                                </div>
+                                                <small>Last 7 days</small>
+                                            </div>
+                                            <button class="option-btn"> <i
+                                                    class="bi bi-three-dots-vertical"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card summary-card h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h6>Failed Transactions</h6>
+                                                <div class="d-flex align-items-center mt-2">
+                                                    <h2> {{ transactionDashboard.failedTransactions || 0 }}</h2>
+                                                    <span class="text-danger ms-2"> <i class="bi bi-arrow-down"></i> {{
+                                                        transactionDashboard.failedGrowth || 0 }}%</span>
+                                                </div>
+                                                <small>Last 7 days</small>
+                                            </div>
+                                            <button class="option-btn"> <i class="bi bi-three-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card payment-card ">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5>Payment Method</h5>
+                                    <button class="option-btn">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="col-md-7">
+                                        <div class="credit-card">
+                                            <div class="chip"></div>
+                                            <h5>Finaci</h5>
+                                            <h3>**** **** **** 2345</h3>
+                                            <div class="d-flex justify-content-between">
+                                                <div><small>Card Holder</small>
+                                                    <p>Norman Manzoor</p>
+                                                </div>
+                                                <div> <small>Expiry</small>
+                                                    <p>02/30</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-outline-secondary w-100 mt-2"> <i
+                                                class="bi bi-plus-circle"></i> Add Card</button>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <p> Status : <span class="text-success fw-bold"> Active </span> </p>
+                                        <p> Transactions : <strong>1,250</strong></p>
+                                        <p> Revenue : <strong>$50,000</strong></p>
+                                        <a href="#" class="text-primary text-decoration-none"> View Transactions </a>
+                                        <div>
+                                            <button class="btn btn-warning px-4 mt-5"> Deactivate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card transaction-card mt-4">
+                    <div class="card-header bg-white border-0 py-3">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                            <div class="transaction-tabs">
+                                <button [class.active]="selectedStatus==='All'" (click)="filterTransactions('All')"> All
+                                    Orders <span>({{ getAllCount() }})</span> </button>
+                                <button [class.active]="selectedStatus==='Delivered'"
+                                    (click)="filterTransactions('Delivered')"> Delivered<span>({{ getCompletedCount()
+                                        }})</span></button>
+                                <button [class.active]="selectedStatus==='Pending'"
+                                    (click)="filterTransactions('Pending')"> Pending <span>({{ getPendingCount()
+                                        }})</span> </button>
+                                <button [class.active]="selectedStatus==='Cancelled'"
+                                    (click)="filterTransactions('Cancelled')"> Cancelled <span>({{ getCancelledCount()
+                                        }})</span> </button>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="search-box">
+                                    <input type="text" placeholder="Search payment history" #search
+                                        (keyup)="searchTransactionstable(search.value)"> <i class="bi bi-search"></i>
+                                </div>
+                                <button class="icon-btn" (click)="filterTransactions('Pending')" title="Pending"> <i
+                                        class="bi bi-funnel"></i> </button>
+                                <button class="icon-btn" (click)="sortByDate()" title="Sort"> <i
+                                        class="bi bi-arrow-down-up"></i> </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-middle mb-0">
+                            <thead class="table-header">
+                                <tr>
+                                    <th>Customer Id</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Total</th>
+                                    <th>Method</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of paginatedTransactions">
+                                    <td>{{item.customerId}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.date | date:'dd-MM-yyyy'}}</td>
+                                    <td> <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                                            style="width:20px,"> {{item.total}}</td>
+                                    <td>{{item.method}}</td>
+                                    <td>
+                                        <span class="status"
+                                            [ngClass]="{   'success': item.status === 'Completed','pending': item.status === 'Pending','cancel': item.status === 'Cancelled' }">
+                                        </span> {{ item.status }}
+                                    </td>
+                                    <td>
+                                        <a [routerLink]="['/admin/order-details', item.orderId]"> View Details </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <app-pagination [currentPage]="currentPage" [totalPages]="totalPages"
+                            (pageChange)="goToPage($event)"></app-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

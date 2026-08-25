@@ -1,0 +1,242 @@
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+    background: transparent;
+    border-bottom: 1px solid transparent;
+
+    /* padding: 20px 0; */
+    transition: all 0.4s ease;
+}
+
+/* Scroll Navbar */
+.navbar.scrolled {
+    background: linear-gradient(
+        to right,
+        #000000 0%,
+        #1A0F08 20%,
+        #4E2F1B 60%,
+        #9A6B3F 100%
+    );
+}
+/* .navbar.scrolled {
+    background: rgb(30, 15, 5) !important;
+    border-bottom: 1px solid rgba(215, 176, 90, .18);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .25);
+} */
+    
+.logo {
+    width: 100px;
+    height: auto;
+} 
+
+/* ==========================
+   LOGO
+========================== */
+/* 
+.logo {
+    width: 150px;
+    height: auto;
+} */
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+.navbar-nav {
+    gap: 30px;
+}
+
+.nav-link {
+    position: relative;
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: .35s;
+    padding: 0;
+}
+
+.nav-link:hover {
+    color: #D7B05A !important;
+}
+
+/* .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background: #D7B05A;
+    transition: .3s;
+} */
+
+.nav-link:hover::after,
+.active-link .nav-link::after {
+    width: 100%;
+}
+
+.active-link .nav-link {
+    color: #D7B05A !important;
+}
+
+/* ==========================
+   ICONS
+========================== */
+
+.icon-link,
+.dropdown-toggle {
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.icon-link i {
+    font-size: 20px;
+}
+
+.icon-link:hover,
+.dropdown-toggle:hover {
+    color: #D7B05A;
+}
+.login-btn.login-highlight {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: #fff;
+}
+
+.login-btn.login-highlight::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.7),
+        transparent
+    );
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    100% {
+        left: 150%;
+    }
+}
+/* ==========================
+   LOGIN BUTTON
+========================== */
+
+.login-btn {
+    /* border: 1px solid #D7B05A; */
+    color: #D7B05A;
+    /* background: transparent;
+    border-radius: 0; */
+    /* padding: 10px 26px; */
+    text-transform: uppercase;
+    /* letter-spacing: 2px;
+    transition: .35s; */
+}
+
+.login-btn:hover {
+    background: #D7B05A;
+    color: #1E0F05;
+    border-color: #D7B05A;
+}
+
+/* ==========================
+   SEARCH
+========================== */
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-input {
+    position: absolute;
+    right: 0;
+    top: 55px;
+    width: 320px;
+    background: #fff;
+    border: 1px solid #D7B05A;
+    border-radius: 0;
+    padding: 12px 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.15);
+}
+
+/* ==========================
+   DROPDOWN
+========================== */
+
+.dropdown-menu {
+    border: none;
+    border-radius: 0;
+    min-width: 240px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+.dropdown-item {
+    padding: 12px 20px;
+    font-size: 14px;
+}
+
+.dropdown-item:hover {
+    background: #f8f5ef;
+}
+
+.wishlist-badge {
+    background: #D7B05A;
+    color: #fff;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:991px) {
+
+    .navbar {
+        background: rgb(30,15,5);
+        padding: 15px 0;
+    }
+
+    .navbar-collapse {
+        margin-top: 15px;
+        background: rgb(30,15,5);
+        padding: 20px;
+    }
+
+    .navbar-nav {
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nav-link {
+        padding: 12px 0;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .search-input {
+        position: relative;
+        width: 100%;
+        top: 15px;
+    }
+}
+
+

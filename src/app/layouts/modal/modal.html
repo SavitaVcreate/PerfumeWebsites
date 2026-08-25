@@ -1,0 +1,110 @@
+<!-- <div class="modal fade" id="commonModal" tabindex="-1">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+
+                    <i
+                        class="me-2"
+                        [class]="
+                        type=='success'
+                        ? 'bi bi-check-circle-fill text-success'
+                        : type=='error'
+                        ? 'bi bi-x-circle-fill text-danger'
+                        : type=='warning'
+                        ? 'bi bi-exclamation-triangle-fill text-warning'
+                        : 'bi bi-info-circle-fill text-primary'
+                    ">
+                    </i>
+
+                    {{title}}
+
+                </h5>
+
+                <button
+                    class="btn-close"
+                    (click)="close()">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                {{message}}
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button
+                    class="btn btn-primary"
+                    (click)="close()">
+                    OK
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div> -->
+<div class="modal fade" id="commonModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+
+        <div class="modal-content custom-modal">
+
+            <div class="modal-body text-center p-4">
+
+                <!-- Success Icon -->
+                <div *ngIf="type=='success'" class="icon-circle success">
+                    <i class="bi bi-check-lg"></i>
+                </div>
+
+                <!-- Error Icon -->
+                <div *ngIf="type=='error'" class="icon-circle error">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+
+                <!-- Warning Icon -->
+                <div *ngIf="type=='warning'" class="icon-circle warning">
+                    <i class="bi bi-exclamation-lg"></i>
+                </div>
+
+                <!-- Info Icon -->
+                <div *ngIf="type=='info'" class="icon-circle info">
+                    <i class="bi bi-info-lg"></i>
+                </div>
+
+                <h3 class="mt-4 fw-bold">
+                    {{title}}
+                </h3>
+
+                <p class="text-muted mt-3 mb-4">
+                    {{message}}
+                </p>
+
+                <button
+                    class="btn popup-btn"
+                    [ngClass]="{
+                        'btn-success-custom':type=='success',
+                        'btn-danger-custom':type=='error',
+                        'btn-warning-custom':type=='warning',
+                        'btn-info-custom':type=='info'
+                    }"
+                    (click)="close()">
+
+                    Continue
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

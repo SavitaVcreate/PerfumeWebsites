@@ -1,1 +1,10 @@
-<p>pagination works!</p>
+<div class="d-flex justify-content-center mt-5">
+    <ul class="pagination">
+        <li> <a href="javascript:void(0)" (click)="previousPage()"> &laquo; </a> </li>
+        <li *ngFor="let page of pages">
+            <a href="javascript:void(0)" [class.active]="page===currentPage" (click)="goToPage(page)"> {{page}}</a>
+        </li>
+        <li> <a href="javascript:void(0)" (click)="nextPage()"> &raquo;</a>
+        </li>
+    </ul>
+</div>

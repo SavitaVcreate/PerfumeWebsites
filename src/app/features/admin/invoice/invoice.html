@@ -1,0 +1,430 @@
+<div class="container-fluid">
+    <div class="row">
+        
+        <div >
+            <app-adminnav></app-adminnav>
+            <router-outlet></router-outlet>
+            <div class="container-fluid py-4">
+
+                <!-- <div class="d-flex justify-content-between align-items-center mb-4">
+
+                    <h4 class="fw-bold mb-0"></h4>
+
+                    <button class="btn download-btn">
+                        Download
+                        <i class="bi bi-download ms-2"></i>
+                    </button>
+
+                </div>
+
+                <div class="invoice-card">
+
+                    <div class="table-responsive">
+
+                        <table class="table align-middle invoice-table mb-0">
+
+                            <thead>
+                                <tr>
+                                    <th style="width:60px">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th>No</th>
+                                    <th>Invoice ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>1</td>
+                                    <td>#876364</td>
+
+                                    <td>
+                                        <div class="customer-info">
+                                            <img src="https://i.pravatar.cc/40?img=1">
+                                            <span>Arrora Gaur</span>
+                                        </div>
+                                    </td>
+
+                                    <td>arroragaur@gmail.com</td>
+
+                                    <td>
+                                        <i class="bi bi-calendar3"></i>
+                                        1 Jan, 2025
+                                    </td>
+
+                                    <td>
+                                        <span class="status complete">
+                                            Complete
+                                        </span>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <i class="bi bi-pencil-square action edit"></i>
+                                        <i class="bi bi-trash action delete"></i>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>2</td>
+                                    <td>#876123</td>
+
+                                    <td>
+                                        <div class="customer-info">
+                                            <img src="https://i.pravatar.cc/40?img=5">
+                                            <span>James Mullican</span>
+                                        </div>
+                                    </td>
+
+                                    <td>jamesmullican@gmail.com</td>
+
+                                    <td>
+                                        <i class="bi bi-calendar3"></i>
+                                        1 Jan, 2025
+                                    </td>
+
+                                    <td>
+                                        <span class="status pending">
+                                            Pending
+                                        </span>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <i class="bi bi-pencil-square action edit"></i>
+                                        <i class="bi bi-trash action delete"></i>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>3</td>
+                                    <td>#876213</td>
+
+                                    <td>
+                                        <div class="customer-info">
+                                            <img src="https://i.pravatar.cc/40?img=12">
+                                            <span>Robert Bacins</span>
+                                        </div>
+                                    </td>
+
+                                    <td>robert@gmail.com</td>
+
+                                    <td>
+                                        <i class="bi bi-calendar3"></i>
+                                        1 Jan, 2025
+                                    </td>
+
+                                    <td>
+                                        <span class="status cancel">
+                                            Cancel
+                                        </span>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <i class="bi bi-pencil-square action edit"></i>
+                                        <i class="bi bi-trash action delete"></i>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>4</td>
+                                    <td>#876987</td>
+
+                                    <td>
+                                        <div class="customer-info">
+                                            <img src="https://i.pravatar.cc/40?img=20">
+                                            <span>Anne Jacob</span>
+                                        </div>
+                                    </td>
+
+                                    <td>anne@gmail.com</td>
+
+                                    <td>
+                                        <i class="bi bi-calendar3"></i>
+                                        1 Jan, 2025
+                                    </td>
+
+                                    <td>
+                                        <span class="status complete">
+                                            Complete
+                                        </span>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <i class="bi bi-pencil-square action edit"></i>
+                                        <i class="bi bi-trash action delete"></i>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div> -->
+
+
+
+                <div class="container py-5">
+
+                    <div class="invoice shadow">
+
+                        <!-- Header -->
+                        <div class="invoice-header">
+
+                            <div class="row align-items-center">
+
+                                <div class="col-md-6">
+                                    <h1 class="invoice-title">INVOICE</h1>
+                                </div>
+
+                                <div class="col-md-6 text-md-end text-center mt-3 mt-md-0">
+
+                                    <img src="logo.png" class="logo">
+
+                                    <h4 class="company-name">Brand Name</h4>
+
+                                    <p class="tagline">Tagline Here</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Customer Details -->
+
+                        <div class="p-4">
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+
+                                    <h6 class="fw-bold">Invoice To :</h6>
+
+                                    <h5>Mr. Jonson</h5>
+
+                                    <p class="mb-1"><strong>P :</strong> +91 9876543210</p>
+
+                                    <p class="mb-1"><strong>E :</strong> demo@gmail.com</p>
+
+                                    <p><strong>A :</strong> Pune, Maharashtra</p>
+
+                                </div>
+
+                                <div class="col-md-6 text-md-end">
+
+                                    <table class="table table-borderless invoice-info">
+
+                                        <tr>
+                                            <td><strong>Invoice No</strong></td>
+                                            <td>:</td>
+                                            <td>#INV001</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Date</strong></td>
+                                            <td>:</td>
+                                            <td>03 Aug 2026</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><strong>Due Date</strong></td>
+                                            <td>:</td>
+                                            <td>10 Aug 2026</td>
+                                        </tr>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                            <!-- Table -->
+
+                            <div class="table-responsive mt-4">
+
+                                <table class="table table-bordered align-middle">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>SL</th>
+                                            <th>Item Description</th>
+                                            <th>Price</th>
+                                            <th>Qty</th>
+                                            <th>Total</th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                        <tr>
+
+                                            <td>01</td>
+                                            <td>Luxury Perfume</td>
+                                            <td>                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+1500</td>
+                                            <td>2</td>
+                                            <td>                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+3000</td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>02</td>
+                                            <td>Body Spray</td>
+                                            <td>                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+600</td>
+                                            <td>1</td>
+                                            <td>               
+                                                 <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+600</td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>03</td>
+                                            <td>Gift Box</td>
+                                            <td>                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+500</td>
+                                            <td>1</td>
+                                            <td>                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+500</td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                            <!-- Bottom -->
+
+                            <div class="row mt-4">
+
+                                <div class="col-md-6">
+
+                                    <h6 class="fw-bold">Payment Information</h6>
+
+                                    <p class="mb-1">Account No : 123456789</p>
+
+                                    <p class="mb-1">A/C Name : Brand Name</p>
+
+                                    <p>Branch : Pune</p>
+
+                                    <h6 class="fw-bold mt-4">Terms & Conditions</h6>
+
+                                    <p class="text-muted">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    </p>
+
+                                    <div class="signature">
+
+                                        <img src="signature.png" height="40">
+
+                                        <h5>Signature</h5>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <table class="table total-table">
+
+                                        <tr>
+
+                                            <td>Subtotal</td>
+
+                                            <td class="text-end">                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+4100</td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>Discount</td>
+
+                                            <td class="text-end">                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+100</td>
+
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>Tax</td>
+
+                                            <td class="text-end">                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+200</td>
+
+                                        </tr>
+
+                                        <tr class="grand-total">
+
+                                            <td>Total</td>
+
+                                            <td class="text-end">                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+4200</td>
+
+                                        </tr>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Footer -->
+
+                        <div class="invoice-footer">
+
+                            <div class="row align-items-center">
+
+                                <div class="col-md-6">
+
+                                    © 2026 Brand Name
+
+                                </div>
+
+                                <div class="col-md-6 text-md-end">
+
+                                    <i class="bi bi-telephone"></i> +91 9876543210
+
+                                    &nbsp;
+
+                                    <i class="bi bi-envelope"></i>
+
+                                    demo@gmail.com
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

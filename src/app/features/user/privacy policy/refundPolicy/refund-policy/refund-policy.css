@@ -1,0 +1,597 @@
+.refund-policy-page {
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.08), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.05), transparent 35%), #0d0d0d;
+    color: #ffffff;
+    padding-top: 120px;
+}
+
+.refund-header {
+    margin-bottom: 45px;
+}
+
+.refund-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d7b05a;
+    border-radius: 50%;
+    color: #d7b05a;
+    font-size: 28px;
+    background: rgba(212, 175, 55, 0.06);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.12);
+}
+
+.refund-header h1 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #d7b05a;
+}
+
+.refund-header p {
+    margin-top: 10px;
+    color: #a9a9a9;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+
+.refund-card {
+    width: 100%;
+    padding: 45px;
+    background: #171717;
+    border: 1px solid #2f2f2f;
+    border-radius: 14px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
+    transition: all 0.3s ease;
+}
+
+.refund-card:hover {
+    border-color: rgba(212, 175, 55, 0.35);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
+
+
+.refund-section {
+    margin-bottom: 35px;
+    border-bottom: 1px solid #2b2b2b;
+}
+
+.refund-section h2 {
+    position: relative;
+
+    margin-bottom: 20px;
+
+    /* padding-left: 18px; */
+
+    color: #d7b05a;
+
+    font-size: 23px;
+
+    font-weight: 600;
+}
+
+/* .refund-section h2::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 4px;
+
+  width: 4px;
+
+  height: 22px;
+
+  background: #d7b05a;
+
+  border-radius: 5px;
+} */
+
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.refund-section p {
+    color: #c8c8c8;
+
+    font-size: 16px;
+
+    line-height: 1.85;
+
+    margin-bottom: 16px;
+}
+
+.refund-section strong {
+    color: #eeeeee;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   LIST
+===================================================== */
+
+.refund-section ul {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 20px 0 0;
+}
+
+.refund-section li {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+
+    color: #c8c8c8;
+
+    font-size: 16px;
+
+    line-height: 1.75;
+}
+
+.refund-section li i {
+    flex-shrink: 0;
+
+    margin-top: 5px;
+
+    color: #d7b05a;
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   SUB HEADING
+===================================================== */
+
+.refund-section h3 {
+    margin-top: 30px;
+
+    margin-bottom: 20px;
+
+    color: #eeeeee;
+
+    font-size: 20px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   GENUINE PRODUCT BOX
+===================================================== */
+
+.genuine-box {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: rgba(212, 175, 55, 0.06);
+
+    border: 1px solid rgba(212, 175, 55, 0.25);
+
+    border-radius: 10px;
+}
+
+.genuine-box>i {
+    flex-shrink: 0;
+
+    color: #d7b05a;
+
+    font-size: 25px;
+}
+
+.genuine-box p {
+    margin: 0;
+}
+
+
+/* =====================================================
+   CANCELLATION STEPS
+===================================================== */
+
+.steps-container {
+    margin-top: 20px;
+}
+
+.step-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+
+    padding: 18px;
+
+    background: #202020;
+
+    border: 1px solid #303030;
+
+    border-radius: 10px;
+
+    transition: all 0.3s ease;
+}
+
+.step-item:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+
+    transform: translateX(4px);
+}
+
+.step-number {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.1);
+
+    border: 1px solid #d7b05a;
+
+    color: #d7b05a;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.step-content h4 {
+    margin: 0 0 6px;
+
+    color: #eeeeee;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+.step-content p {
+    margin: 0;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   IMPORTANT BOX
+===================================================== */
+
+.important-box {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: rgba(180, 130, 30, 0.08);
+
+    border: 1px solid rgba(212, 175, 55, 0.3);
+
+    border-radius: 10px;
+}
+
+.important-box>i {
+    flex-shrink: 0;
+
+    margin-top: 3px;
+
+    color: #d7b05a;
+
+    font-size: 22px;
+}
+
+.important-box p {
+    margin: 0;
+}
+
+
+/* =====================================================
+   PAYMENT METHODS
+===================================================== */
+
+.payment-method {
+    min-height: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 20px;
+
+    background: #202020;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+
+    color: #c8c8c8;
+
+    text-align: center;
+
+    transition: all 0.3s ease;
+}
+
+.payment-method:hover {
+    border-color: #d7b05a;
+
+    transform: translateY(-3px);
+}
+
+.payment-method i {
+    color: #d7b05a;
+
+    font-size: 28px;
+}
+
+.payment-method span {
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   SUPPORT SECTION
+===================================================== */
+
+.support-section {
+    margin-top: 10px;
+
+    padding: 25px;
+
+    background: #202020;
+
+    border: 1px solid #333;
+
+    border-radius: 10px;
+}
+
+.support-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.1);
+
+    border: 1px solid #d7b05a;
+
+    color: #d7b05a;
+
+    font-size: 21px;
+}
+
+.support-section h2 {
+    margin: 0 0 8px;
+
+    color: #d7b05a;
+
+    font-size: 22px;
+}
+
+.support-section p {
+    margin-bottom: 10px;
+
+    color: #c8c8c8;
+
+    line-height: 1.7;
+}
+
+.support-email {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #d7b05a;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    word-break: break-word;
+}
+
+.support-email:hover {
+    color: #ffffff;
+
+    text-decoration: underline;
+}
+
+
+/* =====================================================
+   LAST UPDATED
+===================================================== */
+
+.last-updated {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #2b2b2b;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+.last-updated i {
+    color: #d7b05a;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .refund-policy-page {
+        padding-top: 100px;
+    }
+
+    .refund-card {
+        padding: 35px;
+    }
+
+    .refund-header h1 {
+        font-size: 36px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 576px) {
+
+    .refund-policy-page {
+        padding-top: 80px;
+
+        padding-left: 10px;
+
+        padding-right: 10px;
+    }
+
+    .refund-header {
+        margin-bottom: 30px;
+    }
+
+    .refund-icon {
+        width: 55px;
+
+        height: 55px;
+
+        font-size: 23px;
+    }
+
+    .refund-header h1 {
+        font-size: 30px;
+    }
+
+    .refund-header p {
+        font-size: 15px;
+    }
+
+    .refund-card {
+        padding: 25px 20px;
+
+        border-radius: 10px;
+    }
+
+    .refund-section {
+        margin-bottom: 25px;
+
+        padding-bottom: 25px;
+    }
+
+    .refund-section h2 {
+        font-size: 20px;
+
+        padding-left: 15px;
+    }
+
+    .refund-section h2::before {
+        width: 3px;
+        height: 19px;
+    }
+    .refund-section p,.refund-section li {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    .genuine-box {
+        padding: 15px;
+        gap: 10px;
+    }
+    .important-box {
+        padding: 15px;
+        gap: 10px;
+    }
+    .step-item {
+        gap: 12px;
+        padding: 15px;
+    }
+    .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+    }
+    .step-content h4 {
+        font-size: 16px;
+    }
+    .payment-method {
+        min-height: 90px;
+    }
+    .support-section {
+        padding: 20px;
+    }
+    .support-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+    .support-section h2 {
+        font-size: 20px;
+    }
+    .last-updated {
+        font-size: 13px;
+        text-align: center;
+    }
+
+}

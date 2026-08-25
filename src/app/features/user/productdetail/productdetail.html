@@ -1,0 +1,168 @@
+<app-navbar></app-navbar>
+<section class="product-details pt-5" *ngIf="product">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <div class="product-image-wrapper">
+                    <img src="assets/logo/heart.png" class="wishlist-btn" [class.liked]="product.isLiked" alt="Wishlist"
+                        (click)="onWishlistClick(product); $event.stopPropagation()">
+                    <div id="productCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img [src]="'http://localhost:5000/uploads/profile/' + product.mainImage"
+                                    class="d-block w-100 main-image">
+                            </div>
+                            <div class="carousel-item" *ngFor="let img of product.galleryImages">
+                                <img [src]="'http://localhost:5000/uploads/profile/' + img"
+                                    class="d-block w-100 main-image">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="thumb-images mt-3">
+                    <img [src]="'http://localhost:5000/uploads/profile/' + product.mainImage"
+                        data-bs-target="#productCarousel" data-bs-slide-to="0" class="active">
+                    <img *ngFor="let img of product.galleryImages; let i = index"
+                        [src]="'http://localhost:5000/uploads/profile/' + img" data-bs-target="#productCarousel"
+                        [attr.data-bs-slide-to]="i + 1">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <span class="brand">{{product.brand}}</span>
+                <h4 class="fw-bold text-white">{{product.productName}}</h4>
+                <div class="rating-stock">
+                    <!-- <span class="rating">
+                        ⭐ 4.8
+                    </span> -->
+                    <div class="rating-stock">
+                        <span class="rating"> <i class="bi bi-star-fill text-warning"></i> {{ product.averageRating || 0
+                            }}
+                            <span class="rating-count"> ({{ product.totalRatings || 0 }}) </span>
+                        </span>
+                        <span class="stock" [ngClass]=" product.stockQuantity > 0 ? 'text-success': 'text-danger'">
+                            {{ product.stockStatus }}
+                        </span>
+                    </div>
+                </div>
+                <p class="description text-white">{{product.description}}</p>
+                <div class="price-section">
+                    <h3 class="fw-bold"> <img src="/assets/logo/currency-11.png" alt="AED"
+                            style="width: 18px;height: 18px;">
+                        {{product.sellingPrice}}</h3>
+                    <span class="old-price">
+                        <img src="/assets/logo/currency-11.png" alt="AED" style="width: 18px;height: 18px;">
+                        {{product.mrp}} </span>
+                    <span class="discount"> {{product.discount}}% OFF </span>
+                </div>
+                <small class="tax"> Inclusive of all taxes </small>
+                <div class="row mt-4 g-3">
+                    <div class="col-3">
+                        <button class="btn btn-color w-100" (click)="buyNow(product._id)"> Add To Cart</button>
+                    </div>
+                    <div class="col-3">
+                        <button class="btn btn-outline-dark w-100" (click)="addToCart()"> Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-faq mt-5">
+                    <div class="accordion" id="productInfoAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#highlights"> Product Highlights </button>
+                            </h2>
+                            <div id="highlights" class="accordion-collapse collapse"
+                                data-bs-parent="#productInfoAccordion">
+                                <div class="accordion-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="faq-box">
+                                                <strong>Fragrance Family</strong>
+                                                <p>{{product.fragranceFamily}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="faq-box"> <strong>Longevity</strong>
+                                                <p>{{product.longevity}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="faq-box"> <strong>Concentration</strong>
+                                                <p>{{product.concentration}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="faq-box"> <strong>Volume</strong>
+                                                <p>{{product.volume}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#notes"> Fragrance Notes
+                                </button>
+                            </h2>
+                            <div id="notes" class="accordion-collapse collapse" data-bs-parent="#productInfoAccordion">
+                                <div class="accordion-body">
+                                    <p> <strong>Top Notes</strong><br> {{product.topNotes}} </p>
+                                    <hr>
+                                    <p> <strong>Middle Notes</strong><br> {{product.middleNotes}}</p>
+                                    <hr>
+                                    <p> <strong>Base Notes</strong><br> {{product.baseNotes}} </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#details"> Product Details</button>
+                            </h2>
+                            <div id="details" class="accordion-collapse collapse"
+                                data-bs-parent="#productInfoAccordion">
+                                <div class="accordion-body">
+                                    <table class="table table-borderless">
+                                        <tr>
+                                            <td>Gender</td>
+                                            <td>{{product.gender.join(', ')}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Occasion</td>
+                                            <td>{{product.occasion.join(', ')}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Season</td>
+                                            <td>{{product.season}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Country</td>
+                                            <td>{{product.countryOfOrigin}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Shelf Life</td>
+                                            <td>{{product.shelfLife}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SKU</td>
+                                            <td>{{product.sku}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,10 @@
+<div id="mySidenav" class="sidenav" [class.closed]="!isSidenavOpen">
+  <app-sidebar></app-sidebar>
+</div>
+<div id="main" [class.sidebar-closed]="!isSidenavOpen">
+  <router-outlet></router-outlet>
+</div>
+<button type="button" class="open-toggle-btn" (click)="toggleNav()"><i *ngIf="isSidenavOpen"
+    class="fa-solid fa-chevron-left"> </i>
+  <i *ngIf="!isSidenavOpen" class="fa-solid fa-chevron-right"> </i>
+</button>

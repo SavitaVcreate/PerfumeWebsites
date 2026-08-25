@@ -1,0 +1,452 @@
+.stores-hero {
+    position: relative;
+    height: 550px;
+    background: url('/perumes/stores-1.png') center center/cover no-repeat;
+    overflow: hidden;
+}
+
+.stores-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
+    z-index: 1;
+}
+
+.stores-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.section-subtitle {
+    color: rgba(255, 255, 255, .75);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 72px;
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.section-title span {
+    color: #5a431b;
+    font-style: italic;
+}
+
+.divider-main {
+    width: 80px;
+    height: 2px;
+    background: #f5d28f;
+    margin: 25px auto;
+    position: relative;
+}
+
+.divider-main::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #f5d28f;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    transform: translateX(-50%);
+}
+
+.section-description {
+    max-width: 650px;
+    margin: auto;
+    color: rgba(255, 255, 255, .85);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+@media (max-width:992px) {
+    .section-title {
+        font-size: 56px;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .stores-hero {
+        padding: 70px 20px;
+    }
+
+    .section-title {
+        font-size: 42px;
+    }
+
+    .section-description {
+        font-size: 14px;
+    }
+
+}
+
+.experience-section {
+    background: linear-gradient(135deg, #F5E6CC 0%, #E8C894 35%, #D8A15F 70%, #B97A3D 100%);
+}
+
+.section-heading {
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 60px;
+}
+
+.sub-title {
+    display: block;
+    color: #000;
+    letter-spacing: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 58px;
+    font-weight: 400;
+    color: #222;
+}
+
+.section-heading h2 span {
+    color: #c69a54;
+    font-style: italic;
+}
+
+.title-divider {
+    width: 70px;
+    height: 2px;
+    background: #c69a54;
+    margin: 20px auto;
+    position: relative;
+}
+
+.title-divider::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #c69a54;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    transform: translateX(-50%);
+}
+
+.section-heading p {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.experience-card {
+    border-radius: 16px;
+    padding: 30px;
+    height: 100%;
+    transition: .35s;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+}
+
+.experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.badge-time {
+    border: 1px solid #000;
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.price {
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.experience-card h4 {
+    font-size: 25px;
+    margin-bottom: 18px;
+    color: #222;
+}
+
+.experience-card p {
+    color: #000;
+    line-height: 1.8;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.experience-card a {
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.experience-card a:hover {
+    color: #000;
+}
+
+@media(max-width:991px) {
+    .section-heading h2 {
+        font-size: 48px;
+    }
+}
+
+@media(max-width:767px) {
+    .experience-section {
+        padding: 70px 20px;
+    }
+
+    .section-heading h2 {
+        font-size: 36px;
+    }
+
+    .experience-card {
+        padding: 25px;
+    }
+
+    .experience-card h4 {
+        font-size: 28px;
+    }
+
+    .card-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+.store-location {
+    background: linear-gradient(135deg, #F5E6CC 0%, #E8C894 35%, #D8A15F 70%, #B97A3D 100%);
+}
+
+.city-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.city-tabs button {
+    border: 1px solid #e3c38a;
+    background: #fff;
+    color: #b98b35;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.city-tabs button.active {
+    background: #c69a54;
+    color: #fff;
+}
+
+.city-tabs button:hover {
+    background: #c69a54;
+    color: #fff;
+}
+
+.store-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.store-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.store-image:hover img {
+    transform: scale(1.08);
+}
+
+.image-overlay {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    color: #fff;
+}
+
+.image-overlay h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 42px;
+    margin-bottom: 0;
+}
+
+.image-overlay span {
+    font-size: 14px;
+    opacity: .9;
+}
+
+.country {
+    color: #000;
+    letter-spacing: 4px;
+    font-size: 12px;
+}
+
+.store-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 56px;
+    margin: 18px 0;
+}
+
+.store-title span {
+    color: #c89d52;
+    font-style: italic;
+}
+
+.divider {
+    width: 90px;
+    height: 2px;
+    background: #d8af66;
+    margin: 30px 0;
+    position: relative;
+}
+
+.divider::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #d8af66;
+    border-radius: 50%;
+    position: absolute;
+    left: 45px;
+    top: -3px;
+}
+
+.info-item {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #ecd9b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c69a54;
+    flex-shrink: 0;
+}
+
+.info-item small {
+    color: #000;
+    letter-spacing: 2px;
+    font-size: 11px;
+}
+
+.info-item p {
+    margin: 4px 0 0;
+    color: #444;
+    line-height: 1.7;
+}
+
+.store-buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-book {
+    background: #c69a54;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.btn-book:hover {
+    background: #c69a54;
+    color: #fff;
+}
+
+.btn-direction {
+    border: 1px solid #d9c4a0;
+    color: #444;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+.btn-direction:hover {
+    background: #fff;
+    color: #000;
+}
+
+@media(max-width:991px) {
+    .store-title {
+        font-size: 42px;
+    }
+
+    .store-image img {
+        height: 400px;
+    }
+
+    .store-buttons {
+        justify-content: center;
+    }
+}
+
+@media(max-width:768px) {
+    .store-location {
+        padding: 70px 20px;
+    }
+
+    .store-title {
+        font-size: 34px;
+    }
+
+    .store-image img {
+        height: 300px;
+    }
+
+    .info-item {
+        align-items: flex-start;
+    }
+
+    .store-buttons {
+        flex-direction: column;
+    }
+
+    .btn-book,
+    .btn-direction {
+        width: 100%;
+        text-align: center;
+    }
+}

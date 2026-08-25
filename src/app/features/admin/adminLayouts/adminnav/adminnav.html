@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-lg dashboard-navbar">
+    <div class="container-fluid">
+        <h3 class="page-title fw-bold mb-0"> {{ pageTitle }} </h3>
+        <div class="d-flex align-items-center gap-3 ms-auto">
+            <div class="search-box">
+                <input type="text" class="form-control" placeholder="Search data, users, or reports"
+                    [(ngModel)]="searchText" (input)="onSearch()"><i class="bi bi-search"></i>
+            </div>
+            <button class="icon-btn"> <i class="bi bi-bell"></i> <span class="notification-dot"></span>
+            </button>
+            <button class="btn btn-outline-secondary theme-btn" (click)="toggleTheme()">
+                <i class="bi"
+                    [ngClass]="{ 'bi-moon-fill': !(themeService.isDarkMode$ | async),  'bi-sun-fill': themeService.isDarkMode$ | async}"></i>
+            </button>
+            <div class="dropdown">
+                <button class="btn border-0 bg-transparent shadow-none p-0" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"> <img src="assets/logo/download-icons-1.png" width="30" height="30"
+                        alt="Download"> </button>
+                <ul class="dropdown-menu dropdown-menu-end shadow">
+                    <li>
+                        <button class="dropdown-item d-flex align-items-center gap-2" (click)="downloadFile('pdf')">
+                            <i class="bi bi-file-earmark-pdf text-danger"></i> Download PDF </button>
+                    </li>
+                    <li>
+                        <button class="dropdown-item d-flex align-items-center gap-2" (click)="downloadFile('excel')">
+                            <i class="bi bi-file-earmark-excel text-success"></i> Download Excel</button>
+                    </li>
+                </ul>
+            </div>
+            <!-- <button type="button" class="btn border-0 bg-transparent shadow-none p-0" (click)="onDownload()">
+
+                <img src="assets/logo/download-icons-1.png" width="30" height="30">
+
+            </button> -->
+            <!-- <button type="button" class="btn border-0 bg-transparent shadow-none d-flex align-items-center gap-2 p-0"
+                (click)="onDownload()">
+
+                <img src="assets/logo/download-icons-1.png" alt="download" width="30" height="30">
+
+
+            </button> -->
+            <!-- <img src="/assets/logo/download-icons-1.png" alt="download-icons" style="width:40px; height:40px"> -->
+            <!-- <button class="btn btn-outline-secondary">
+                <i class="bi bi-moon-fill"></i>
+            </button> -->
+            <div class="dropdown">
+                <button class="btn p-0 border-0 bg-transparent dropdown-toggle d-flex align-items-center" type="button"
+                    id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="d-flex align-items-center">
+                        <img [src]="user?.profileImage ? 'http://localhost:5000' + user.profileImage : 'assets/logo/profile.png'"
+                            alt="Profile" class="profile-image rounded-circle">
+                        <div class="ms-2">
+                            <h6 class="mb-0 fw-semibold"> {{ user?.fullName }}</h6>
+                            <small class="text-muted"> {{ user?.role }} </small>
+                        </div>
+                    </div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                    <li>
+                        <a class="dropdown-item" routerLink="/admin/admin-profile">
+                            <i class="bi bi-person me-2"></i> My Profile</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li> <a class="dropdown-item text-danger" href="javascript:void(0)" data-bs-toggle="modal"
+                            data-bs-target="#logoutModal">
+                            <i class="bi bi-box-arrow-right me-2"></i> Logout </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold"> Logout </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <i class="bi bi-box-arrow-right display-3 text-warning"></i>
+                <h5 class="mt-3"> Are you sure you want to logout? </h5>
+                <p class="text-muted"> You will be redirected to the login page.</p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal"> Cancel</button>
+                <button type="button" class="btn btn-danger px-4" (click)="logout()"> Logout</button>
+            </div>
+        </div>
+    </div>
+</div>

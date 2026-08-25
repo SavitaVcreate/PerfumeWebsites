@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+<section class="contact-banner">
+</section>
+<section class="contact-section">
+    <div class="container-fluid">
+        <div class="row  align-items-center">
+            <div class="col-lg-6">
+                <div class="contact-left">
+                    <h1>Contact Us</h1>
+                    <p> Get 20% off your first order & receive access to our exclusive product events. </p>
+                    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Full Name" name="fullName"
+                                    [(ngModel)]="contactData.fullName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Phone Number" name="phone"
+                                    [(ngModel)]="contactData.phone" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Email" name="email"
+                                    [(ngModel)]="contactData.email" required email>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Address" name="address"
+                                    [(ngModel)]="contactData.address">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Message" name="message"
+                                    [(ngModel)]="contactData.message" required></textarea>
+                            </div>
+                        </div>
+                        <button class="btn submit-btn" type="submit" [disabled]="loading">
+                            {{ loading ? 'Sending...' : 'Submit' }}
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-card">
+                    <h2>Contact Information</h2>
+                    <p class="sub-title">
+                        Say Something to start a live chat!
+                    </p>
+                    <div class="info-item"> <i class="bi bi-telephone-fill"></i> <span>+91 9876543210</span>
+                    </div>
+                    <div class="info-item"><i class="bi bi-envelope-fill"></i> <span>support@abdullahparfume.com</span>
+                    </div>
+                    <div class="info-item"> <i class="bi bi-geo-alt-fill"></i>  <span> D.V-151, Waheedabad, Gulbahar ,karachi</span>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"> <i class="bi bi-whatsapp"></i> </a>
+                        <a href="#"> <i class="bi bi-facebook"></i> </a>
+                        <a href="#"> <i class="bi bi-instagram"></i> </a>
+                        <a href="#"> <i class="bi bi-youtube"></i> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

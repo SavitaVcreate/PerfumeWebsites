@@ -1,0 +1,358 @@
+
+.stats-card{
+    border:1px solid #ECECEC;
+    border-radius:8px;
+    background:#ffffff;
+    padding:18px;
+    transition:all .3s ease;
+    box-shadow:none;
+}
+
+.stats-card:hover{
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.stats-title{
+    font-size:18px;
+    font-weight:700;
+    color:#23272E;
+    margin-bottom:0;
+}
+
+.stats-number{
+    font-size:32px;
+    font-weight:700;
+    color:#023337;
+    /* line-height:1; */
+}
+
+.stats-growth{
+    font-size:13px;
+    font-weight:600;
+    color:#21C45D;
+}
+
+.stats-footer{
+    color:#6A717F;
+    font-size:14px;
+    font-weight:500;
+}
+
+.bi-three-dots-vertical{
+    color:#999;
+    font-size:18px;
+}
+
+
+/* ==========================
+   Customer Overview Card
+========================== */
+
+.overview-card{
+    border-radius:8px;
+    border:1px solid #ECECEC;
+    background:#ffffff;
+    padding:10px;
+}
+
+.overview-title{
+    font-size:18px;
+    font-weight:700;
+    color:#222;
+}
+
+
+/* ==========================
+   Week Buttons
+========================== */
+
+.week-btn{
+    border-radius:30px;
+    border:1px solid #E5E7EB;
+    background:#ffffff;
+    color:#666;
+    font-size:12px;
+    font-weight:600;
+    padding:6px 16px;
+    transition:.3s;
+}
+
+.week-btn:hover{
+    background:#F5F5F5;
+}
+
+.week-btn.active{
+    background:#E6B325;
+    color:#fff;
+    border-color:#E6B325;
+}
+
+
+/* ==========================
+   Overview Statistics
+========================== */
+
+/* .overview-stats{
+    border-bottom:1px solid #F1F1F1;
+    padding-bottom:18px;
+    margin-bottom:15px;
+} */
+
+.overview-item{
+    position:relative;
+    padding-bottom:10px;
+}
+
+.overview-item.active::after{
+    content:'';
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:-1px;
+    width:70%;
+    height:3px;
+    background:#E4B647;
+    border-radius:10px;
+}
+
+.overview-value{
+    font-size:22px;
+    font-weight:700;
+    color:#23272E;
+    margin-bottom:4px;
+}
+
+.overview-label{
+    font-size:12px;
+    color:#8B909A;
+}
+
+
+.overview-value{
+    font-size:24px;
+    font-weight:700;
+    color:#222;
+    margin-bottom:4px;
+}
+
+.overview-label{
+    color:#9CA3AF;
+    font-size:12px;
+    font-weight:500;
+}
+
+
+/* ==========================
+   Chart
+========================== */
+
+.chart-wrapper{
+    position:relative;
+    width:100%;
+    height:320px;
+}
+
+.chart-wrapper canvas{
+    width:100% !important;
+    height:320px !important;
+}
+
+
+/* ==========================
+   Cards
+========================== */
+
+.card{
+    border:none;
+}
+
+
+/* ==========================
+   Buttons
+========================== */
+
+.btn:focus{
+    box-shadow:none;
+}
+
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width:991px){
+
+    .overview-card{
+        margin-top:20px;
+    }
+
+    .stats-number{
+        font-size:30px;
+    }
+
+    .overview-value{
+        font-size:20px;
+    }
+
+    .chart-wrapper{
+        height:260px;
+    }
+
+    .chart-wrapper canvas{
+        height:260px !important;
+    }
+
+}
+
+@media (max-width:767px){
+
+    .container-fluid{
+        padding:15px;
+    }
+
+    .overview-title{
+        margin-bottom:15px;
+    }
+
+    .week-btn{
+        margin-top:10px;
+        margin-bottom:5px;
+    }
+
+    .stats-card{
+        margin-bottom:15px;
+    }
+
+    .stats-number{
+        font-size:28px;
+    }
+
+    .overview-value{
+        font-size:18px;
+    }
+
+    .chart-wrapper{
+        height:220px;
+    }
+
+    .chart-wrapper canvas{
+        height:220px !important;
+    }
+
+}
+
+@media (max-width:576px){
+
+    .overview-card{
+        padding:15px;
+    }
+
+    .stats-card{
+        padding:15px;
+    }
+
+    .stats-number{
+        font-size:26px;
+    }
+
+    .overview-value{
+        font-size:17px;
+    }
+
+    .week-btn{
+        width:100%;
+        margin-bottom:10px;
+    }
+
+}
+
+
+/* .customer-table-card{
+    border-radius:16px;
+    overflow:hidden;
+} */
+
+/* .customer-table-card table{
+    margin:0;
+} */
+.customer-table-card .table thead th{
+    background-color:#E3B546 !important;
+    color:#fff;
+    border:0;
+}
+/* 
+.customer-table-card thead{
+    background:#E7B739;
+} */
+
+.customer-table-card thead th{
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    border:none;
+    padding:14px 18px;
+}
+
+.customer-table-card tbody td{
+    padding:16px 18px;
+    font-size:13px;
+    color:#555;
+    border-bottom:1px solid #f1f1f1;
+    vertical-align:middle;
+}
+
+.customer-table-card tbody tr:hover{
+    background:#fafafa;
+}
+
+.status{
+    font-size:13px;
+    font-weight:600;
+}
+
+.status.active{
+    color:#22c55e;
+}
+
+.status.inactive{
+    color:#ef4444;
+}
+
+.status.vip{
+    color:#f59e0b;
+}
+
+.action-icons .btn{
+    width:30px;
+    height:30px;
+    border-radius:8px;
+    padding:0;
+    color:#6b7280;
+}
+
+.action-icons .btn:hover{
+    background:#f4f4f4;
+}
+
+.pagination .page-link{
+    border:none;
+    color:#666;
+    border-radius:6px;
+    margin:0 2px;
+}
+
+.pagination .active .page-link{
+    background:#E7B739;
+    color:#fff;
+}
+
+.btn-outline-secondary{
+    border-color:#e5e7eb;
+    color:#666;
+}
+
+.btn-outline-secondary:hover{
+    background:#E7B739;
+    color:#fff;
+    border-color:#E7B739;
+}

@@ -1,0 +1,720 @@
+/* ============================================
+   CANCELLED ORDER TRACKING
+============================================ */
+
+.cancelled-order-tracking {
+  position: relative;
+  padding: 10px 0 10px 10px;
+}
+
+
+/* Vertical line */
+
+.cancelled-order-tracking::before {
+  content: "";
+  position: absolute;
+  left: 21px;
+  top: 35px;
+  bottom: 35px;
+  width: 3px;
+  background: #dc3545;
+}
+
+
+/* Tracking item */
+
+.cancelled-track-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  min-height: 85px;
+}
+
+
+/* Icon */
+
+.cancelled-track-item .track-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  z-index: 2;
+}
+
+
+/* Completed icon */
+
+.cancelled-track-item.completed .track-icon {
+  color: #198754;
+  font-size: 24px;
+}
+
+
+/* Cancelled icon */
+
+.cancelled-track-item.cancelled .track-icon {
+  color: #dc3545;
+  font-size: 27px;
+}
+
+
+/* Content */
+
+.cancelled-track-item .track-content {
+  margin-left: 15px;
+  padding-top: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Completed text */
+
+.cancelled-track-item.completed strong {
+  color: #198754;
+  font-size: 17px;
+}
+
+
+/* Cancelled text */
+
+.cancelled-track-item.cancelled strong {
+  color: #dc3545;
+  font-size: 18px;
+}
+
+
+/* Date */
+
+.cancelled-track-item small {
+  margin-top: 6px;
+  color: #6c757d;
+  font-size: 14px;
+}
+.order-page {
+    padding-top: 100px;   
+    min-height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        #000000 0%,
+        #1A1A1A 20%,
+        #4A3515 40%,
+        #B87A3B 65%,
+        #DAAC4A 85%,
+        #FFF8E7 100%
+    );
+}
+.product-img{
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:contain;
+
+}
+
+.price{
+
+    color:#388e3c;
+
+    font-weight:700;
+
+}
+
+.seller{
+
+    color:#777;
+
+}
+
+.card{
+
+    border-radius:10px;
+
+}
+
+.timeline{
+
+    list-style:none;
+
+    padding-left:20px;
+
+    position:relative;
+
+}
+
+.timeline::before{
+
+    content:'';
+
+    position:absolute;
+
+    left:9px;
+
+    top:0;
+
+    width:2px;
+
+    height:100%;
+
+    background:#ddd;
+
+}
+
+.timeline li{
+
+    position:relative;
+
+    margin-bottom:35px;
+
+    padding-left:30px;
+
+    color:#999;
+
+    font-weight:500;
+
+}
+
+.timeline li::before{
+
+    content:'';
+
+    position:absolute;
+
+    left:-1px;
+
+    top:4px;
+
+    width:20px;
+
+    height:20px;
+
+    border-radius:50%;
+
+    border:3px solid #bbb;
+
+    background:#fff;
+
+}
+
+.timeline li.active{
+
+    color:#2e7d32;
+
+    font-weight:700;
+
+}
+
+.timeline li.active::before{
+
+    background:#2e7d32;
+
+    border-color:#2e7d32;
+
+}
+
+.timeline small{
+
+    display:block;
+
+    color:#666;
+
+    margin-top:5px;
+
+}
+
+.price-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:12px;
+
+}
+
+.total{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+.btn{
+
+    min-width:170px;
+
+}
+
+@media(max-width:768px){
+
+.product-img{
+
+    width:120px;
+
+    height:120px;
+
+}
+
+}
+
+/* ============================================
+   REVIEW BOX
+============================================ */
+
+.review-box {
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 15px 20px;
+}
+
+
+/* ============================================
+   REVIEW TITLE
+============================================ */
+
+.review-title {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  color: #212121;
+}
+
+
+/* ============================================
+   RATING ROW
+============================================ */
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+
+/* ============================================
+   RATING LABEL
+============================================ */
+
+.rating-label {
+  font-weight: 600;
+  min-width: 65px;
+  color: #212121;
+}
+
+
+/* ============================================
+   STARS
+============================================ */
+
+.rating-stars {
+  display: flex;
+  gap: 5px;
+}
+
+
+/* ============================================
+   STAR BUTTON
+============================================ */
+
+.star-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font-size: 21px;
+  line-height: 1;
+}
+
+
+/* ============================================
+   DEFAULT STAR
+============================================ */
+
+.star-btn i {
+  color: #d8d8d8;
+  transition: 0.2s;
+}
+
+
+/* ============================================
+   ACTIVE STAR
+============================================ */
+
+.star-btn i.active {
+  color: #198754;
+}
+
+
+/* ============================================
+   HOVER
+============================================ */
+
+.star-btn:hover i {
+  color: #198754;
+}
+
+
+/* ============================================
+   WRITE REVIEW BUTTON
+============================================ */
+
+.write-review-btn {
+  margin-left: auto;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 600;
+}
+
+/* =========================================
+   RETURN STATUS CARD
+========================================= */
+
+.return-status-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.return-status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.return-status-header h6 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.return-status-badge {
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   STATUS COLORS
+========================================= */
+
+.return-not-requested {
+  background: #f1f3f5;
+  color: #555;
+}
+
+.return-requested {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.return-approved {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.return-rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.return-picked-up {
+  background: #cfe2ff;
+  color: #084298;
+}
+
+.returned {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.refund-processing {
+  background: #e2d9f3;
+  color: #432874;
+}
+
+.refund-completed {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+
+/* =========================================
+   RETURN PROGRESS
+========================================= */
+
+.return-progress {
+  position: relative;
+}
+
+.return-step {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  min-height: 65px;
+  opacity: 0.45;
+}
+
+.return-step.active {
+  opacity: 1;
+}
+
+.return-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 30px;
+  width: 2px;
+  height: 42px;
+  background: #ddd;
+}
+
+.return-step.active:not(:last-child)::after {
+  background: #198754;
+}
+
+.return-step-icon {
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.return-step-icon i {
+  font-size: 20px;
+  color: #adb5bd;
+}
+
+.return-step.active .return-step-icon i {
+  color: #198754;
+}
+
+.return-step-content {
+  margin-left: 12px;
+}
+
+.return-step-content strong {
+  display: block;
+  font-size: 14px;
+}
+
+.return-step-content small {
+  display: block;
+  color: #777;
+  margin-top: 3px;
+}
+
+
+/* =========================================
+   RETURN MODAL
+========================================= */
+
+.return-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.return-modal {
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+
+  background: #fff;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 50px rgba(0, 0, 0, 0.25);
+}
+
+.return-modal-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid #eee;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.return-modal-header h5 {
+  font-weight: 700;
+}
+
+.return-close-btn {
+  border: none;
+  background: transparent;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.return-close-btn:hover {
+  background: #f2f2f2;
+}
+
+.return-modal-body {
+  padding: 22px;
+  max-height: 65vh;
+  overflow-y: auto;
+}
+
+.return-modal-footer {
+  padding: 16px 22px;
+
+  border-top: 1px solid #eee;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+
+/* =========================================
+   RETURN PRODUCT
+========================================= */
+
+.return-product {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  background: #f8f9fa;
+
+  border-radius: 10px;
+
+  padding: 14px;
+
+  margin-bottom: 20px;
+}
+
+.return-product img {
+  width: 75px;
+  height: 75px;
+
+  object-fit: contain;
+
+  background: #fff;
+
+  border-radius: 8px;
+
+  border: 1px solid #eee;
+}
+
+.return-product h6 {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+
+/* =========================================
+   REFUND INFO
+========================================= */
+
+.refund-info {
+  background: #f8f9fa;
+
+  border: 1px solid #eee;
+
+  border-radius: 10px;
+
+  padding: 15px;
+
+  display: flex;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.refund-info div {
+  display: flex;
+  flex-direction: column;
+}
+
+.refund-info span {
+  color: #777;
+  font-size: 12px;
+}
+
+.refund-info strong {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 576px) {
+
+  .return-status-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .return-status-badge {
+    white-space: normal;
+  }
+
+  .return-modal-overlay {
+    padding: 10px;
+  }
+
+  .return-modal {
+    max-height: 95vh;
+  }
+
+  .return-modal-body {
+    max-height: 68vh;
+  }
+
+  .refund-info {
+    flex-direction: column;
+  }
+
+  .return-modal-footer {
+    flex-direction: column;
+  }
+
+  .return-modal-footer button {
+    width: 100%;
+  }
+
+}

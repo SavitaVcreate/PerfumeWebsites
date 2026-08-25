@@ -1,0 +1,45 @@
+<div
+  *ngIf="alert"
+  class="custom-alert"
+  [ngClass]="'alert-' + alert.type">
+
+  <div class="alert-icon">
+
+    <i
+      *ngIf="alert.type === 'success'"
+      class="bi bi-check-circle-fill">
+    </i>
+
+    <i
+      *ngIf="alert.type === 'warning'"
+      class="bi bi-exclamation-triangle-fill">
+    </i>
+
+    <i
+      *ngIf="alert.type === 'error'"
+      class="bi bi-x-circle-fill">
+    </i>
+
+    <i
+      *ngIf="alert.type === 'info'"
+      class="bi bi-info-circle-fill">
+    </i>
+
+  </div>
+
+
+  <div class="alert-message">
+    {{ alert.message }}
+  </div>
+
+
+  <button
+    type="button"
+    class="alert-close"
+    (click)="close()">
+
+    <i class="bi bi-x"></i>
+
+  </button>
+
+</div>

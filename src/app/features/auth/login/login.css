@@ -1,0 +1,25 @@
+
+
+
+.custom-input {
+    height: 48px;
+    border-radius: 8px;
+    background: #F7F7F8;
+    font-size: 16px;
+    box-shadow: none;
+}
+.custom-input::placeholder {
+    color: #9CA3AF;
+    font-size: 16px;
+}
+.form-label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+.input-group-text {
+    background: #F7F7F8;
+}
+.eyes-cutom {
+    background-color: #F7F7F8;
+}
