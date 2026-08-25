@@ -1,0 +1,185 @@
+<div class="container-fluid">
+    <div class="row">
+        <div>
+            <app-adminnav></app-adminnav>
+            <router-outlet></router-outlet>
+            <div class="row g-3 mt-3" style="background-color: #F7F7F8;">
+                <div class="col-xl-3 col-lg-4">
+                    <div class="card stats-card mb-4" *ngFor="let card of statsCards">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h6 class="stats-title"> {{ card.title }} </h6>
+                            <button class="btn btn-sm p-0 border-0 bg-transparent"> <i
+                                    class="bi bi-three-dots-vertical"></i> </button>
+                        </div>
+                        <div class="d-flex align-items-end mt-2">
+                            <h2 class="stats-number mb-0">{{ card.value }} </h2>
+                            <span class="stats-growth ms-2" [class.text-success]="card.growth >= 0"
+                                [class.text-danger]="card.growth < 0">
+                                <i class="bi"
+                                    [ngClass]="card.growth >= 0 ? 'bi bi-arrow-up-short': 'bi bi-arrow-down-short'"></i>
+                                {{ card.growth }}% </span>
+                        </div>
+                        <small class="stats-footer mt-2"> {{ card.footer }}</small>
+                    </div>
+                </div>
+                <!-- <div class="col-xl-3 col-lg-4">
+                    <div class="card stats-card mb-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h6 class="stats-title">Total Customers</h6>
+                            <button class="btn btn-sm p-0 border-0 bg-transparent">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                        <div class="d-flex align-items-end mt-2">
+                            <h2 class="stats-number mb-0">
+                                {{ totalCustomers }}
+                            </h2>
+                            <span class="stats-growth ms-2">
+                                <i class="bi bi-arrow-up-short"></i>
+                                14.4%
+                            </span>
+                        </div>
+                        <small class="stats-footer mt-2">
+                            Last 7 Days
+                        </small>
+                    </div>
+                    <div class="card stats-card mb-4">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h6 class="stats-title">New Customers</h6>
+                            <button class="btn btn-sm p-0 border-0 bg-transparent">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                        <div class="d-flex align-items-end mt-2">
+                            <h2 class="stats-number mb-0">
+                                {{ newCustomers }}
+                            </h2>
+                            <span class="stats-growth ms-2">
+                                <i class="bi bi-arrow-up-short"></i>
+                                20%
+                            </span>
+
+                        </div>
+                        <small class="stats-footer mt-2">
+                            Last 7 Days
+                        </small>
+                    </div>
+                    <div class="card stats-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h6 class="stats-title">Visitor</h6>
+                            <button class="btn btn-sm p-0 border-0 bg-transparent">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                        <div class="d-flex align-items-end mt-2">
+                            <h2 class="stats-number mb-0">
+                                250k
+                            </h2>
+                            <span class="stats-growth ms-2">
+                                <i class="bi bi-arrow-up-short"></i>
+                                20%
+                            </span>
+                        </div>
+                        <small class="stats-footer mt-2">
+                            Last 7 Days
+                        </small>
+                    </div>
+                </div> -->
+                <div class="col-xl-9 col-lg-8">
+                    <div class="card overview-card">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap mb-2">
+                            <h5 class="overview-title mb-0"> Customer Overview</h5>
+                            <div>
+                                <button class="btn week-btn me-2" [class.active]="selectedPeriod==='thisWeek'"
+                                    (click)="changePeriod('thisWeek')">
+                                    This Week </button>
+
+                                <button class="btn week-btn" [class.active]="selectedPeriod==='lastWeek'"
+                                    (click)="changePeriod('lastWeek')">
+                                    Last Week </button>
+                            </div>
+                            <!-- <div>
+                                <button class="btn week-btn active me-2">
+                                    This Week
+                                </button>
+                                <button class="btn week-btn">
+                                    Last Week
+                                </button>
+                            </div> -->
+                        </div>
+                        <div class="row overview-stats text-center">
+                            <div class="col-md-3 col-6 mb-3">
+                                <div class="overview-item active">
+                                    <h4 class="overview-value"> {{ activeCustomers }}</h4>
+                                    <small class="overview-label">Active Customers</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <div class="overview-item">
+                                    <h4 class="overview-value">{{ repeatCustomers }}</h4>
+                                    <!-- <h4 class="overview-value">5.6k</h4> -->
+                                    <small class="overview-label">Repeat Customers</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <div class="overview-item">
+                                    <h4 class="overview-value">{{ shopVisitor }}</h4>
+                                    <!-- <h4 class="overview-value">250k</h4> -->
+                                    <small class="overview-label">Shop Visitor</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-3">
+                                <div class="overview-item">
+                                    <h4 class="overview-value">{{ conversionRate }}%</h4>
+                                    <!-- <h4 class="overview-value">5.5%</h4> -->
+                                    <small class="overview-label">Conversion Rate</small>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="customerChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="card customer-table-card border-0 shadow-sm mt-4">
+                    <div class="table-responsive mt-2">
+                        <table class="table align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Customer Id</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Order Count</th>
+                                    <th>Total Spend</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let customer of paginatedCustomers; let i = index">
+                                    <td>#CUST{{ i + 1 }}</td>
+                                    <td>{{ customer.fullName }}</td>
+                                    <td>{{ customer.moblieNo }}</td>
+                                    <td>{{ customer.orderCount }}</td>
+                                    <!-- <td>0</td> -->
+                                    <td> <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                                            style="width:20px,"> {{ customer.totalSpend || 0 }}</td>
+                                    <!-- <td> <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">0.00</td> -->
+                                    <td> <span class="status" [ngClass]="customer.status ? 'active' : 'inactive'"> ● {{
+                                            customer.status ? 'Active' : 'Inactive' }}</span> </td>
+                                    <td class="text-center action-icons">
+                                        <button class="btn btn-sm"> <i class="bi bi-pencil"></i> </button>
+                                        <button class="btn btn-sm"> <i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <app-pagination [currentPage]="currentPage" [totalPages]="totalPages"
+                        (pageChange)="setPage($event)"></app-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

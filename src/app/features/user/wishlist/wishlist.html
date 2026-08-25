@@ -1,0 +1,39 @@
+<div class="container-fluid profile-page">
+    <div class="row">
+        <div class="col-lg-3 col-md-4">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-lg-9 mt-3">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="fw-bold mb-0"> My Wishlist ({{ wishlist.length }}) </h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="row align-items-center p-4 border-bottom" *ngFor="let item of wishlist">
+                        <div class="col-md-2 text-center">
+                            <img [src]="'http://localhost:5000/uploads/profile/' + item?.productId?.mainImage"
+                                class="img-fluid rounded" alt="Product">
+                        </div>
+                        <div class="col-md-8">
+                            <h6 class="mb-2"> {{ item?.productId?.productName }} </h6>
+                            <h4 class="fw-bold">
+                                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icons"
+                                    style="width:20px,"> {{ item?.productId?.sellingPrice }}
+                                <small class="text-decoration-line-through text-muted ms-2">
+                                    <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icons"
+                                        style="width:20px,"> {{ item?.productId?.mrp }}
+                                </small>
+                            </h4>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <button class="btn btn-light" (click)="removeWishlist(item.productId._id)">
+                                <i class="bi bi-trash fs-4 text-secondary"></i> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showMessage" class="alert alert-success position-fixed top-0 end-0 m-3"
+    style="z-index:9999; min-width:300px;"> {{ message }}</div>

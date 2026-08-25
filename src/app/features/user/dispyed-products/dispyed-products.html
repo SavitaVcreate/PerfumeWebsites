@@ -1,0 +1,52 @@
+<section class="collection-section" id="collection">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="collection-title">   Our Collection</h2>
+        </div>
+        <div class="text-center" *ngIf="loading">
+            <h5 class="text-white">  Loading Products... </h5>
+        </div>
+        <div class="row g-4" *ngIf="!loading">
+            <div class="col-lg-4 col-md-6" *ngFor="let product of filteredProducts | slice:0:3">
+                <div class="luxury-card">
+                    <div class="image-wrapper" (click)="openProduct(product._id)">
+                        <span class="sale-badge" *ngIf="product.discount > 0"> SALE </span>
+                        <img [src]="product.isLiked ? 'assets/logo/heart-fill.png' : 'assets/logo/heart.png'"
+                            class="wishlist-btn" alt="Wishlist"
+                            (click)="onWishlistClick(product); $event.stopPropagation()">
+                        <img [src]="'http://localhost:5000/uploads/profile/' + product.mainImage" class="luxury-image"
+                            [alt]="product.productName">
+                        <div class="card-overlay">
+                            <button class="discover-btn" (click)="openProduct(product._id); $event.stopPropagation()">
+                                QUICK VIEW
+                            </button>
+                        </div>
+                    </div>
+                    <div class="luxury-footer"> <small class="brand"> {{ product.brand }}</small>
+                        <h4 class="product-name"> {{ product.shortName }} </h4>
+                        <p class="notes"> {{ product.fragranceFamily }} • {{ product.gender }} • {{ product.volume }}
+                        </p>
+                        <!-- <div class="rating">
+                            ★★★★★
+                        </div> -->
+                        <div class="price">
+                            <span class="new-price"> <img src="/assets/logo/currency-11.png" alt="AED" style="width:18px;height: 18px;">
+                                {{ product.sellingPrice }}
+                            </span>
+                            <span class="old-price" *ngIf="product.mrp">
+                                <img src="/assets/logo/currency-11.png" alt="AED" style="width:16px;height: 16px;"> {{
+                                product.mrp }}
+                            </span>
+                        </div>
+                        <button class="add-cart-btn" (click)="addToCart(product._id); $event.stopPropagation()">
+                            <i class="bi bi-bag-plus me-2"></i> ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <button class="view-btn" routerLink="/all-product"> VIEW ALL PRODUCTS </button>
+        </div>
+    </div>
+</section>

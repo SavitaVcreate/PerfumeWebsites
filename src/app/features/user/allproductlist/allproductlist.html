@@ -1,0 +1,234 @@
+<app-navbar></app-navbar>
+<section class="collection-section">
+    <div class="collection-header text-center">
+        <img src="perumes/perfume-12.png" alt="Perfume Banner" style="width:100%; height:550px;">
+    </div>
+    <div class="container pt-4">
+        <div class="row ">
+            <div class="col-lg-3">
+                <div class="filter-sidebar">
+                    <div class="applied-filters" *ngIf="appliedFilters.length > 0">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Filters</h5>
+                            <button class="btn btn-link p-0 text-danger fw-semibold" (click)="clearAllFilters()">
+                                Reset
+                            </button>
+                        </div>
+                        <div class="filter-tags">
+                            <span class="filter-chip" *ngFor="let filter of appliedFilters">
+                                {{filter.label}}
+                                <i class="bi bi-x-lg ms-2" (click)="removeFilter(filter)">
+                                </i>
+                            </span>
+                        </div>
+                    </div>
+                    <h3 class="filter-title ">
+                        <i class="bi bi-sliders me-2"></i>
+                        Filters
+                    </h3>
+                    <div class="filter-item">
+                        <div class="filter-header" (click)="toggleFilter('gender')">
+                            <span>Gender</span>
+                            <i class="bi" [ngClass]="showGender ? 'bi-chevron-down' : 'bi-chevron-right'">
+                            </i>
+                        </div>
+                        <div *ngIf="showGender" class="filter-body">
+                            <div *ngFor="let gender of genders">
+                                <label>
+                                    <input type="checkbox" [value]="gender" (change)="onGenderChange($event)">
+                                    {{gender}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="filter-header" (click)="toggleFilter('family')">
+                            <span>Fragrance Family</span>
+                            <i class="bi fw-bold" [ngClass]="showFamily ? 'bi-chevron-down':'bi-chevron-right'">
+                            </i>
+
+                        </div>
+
+                        <div *ngIf="showFamily" class="filter-body">
+
+                            <div *ngFor="let family of fragranceFamilies">
+
+                                <label>
+
+                                    <input type="checkbox" [value]="family" (change)="onFamilyChange($event)">
+
+                                    {{family}}
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="filter-item">
+                        <div class="filter-header" (click)="toggleFilter('price')">
+                            <span>Price</span>
+                            <i class="bi fw-bold" [ngClass]="showPrice ? 'bi-chevron-down' : 'bi-chevron-right'">
+                            </i>
+                        </div>
+                        <div *ngIf="showPrice" class="filter-body">
+                            <div class="row g-2 mb-3">
+                                <div class="col-6">
+                                    <label class="form-label">Min</label>
+                                    <input type="number" class="form-control" [(ngModel)]="minPrice"
+                                        (input)="filterProducts()" placeholder="0">
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Max</label>
+                                    <input type="number" class="form-control" [(ngModel)]="selectedPrice"
+                                        (input)="filterProducts()" [max]="maxPrice" placeholder="10000">
+                                </div>
+                            </div> <input type="range" class="form-range" [min]="0" [max]="maxPrice"
+                                [(ngModel)]="selectedPrice" (input)="filterProducts()">
+                            <div class="d-flex justify-content-between mt-2">
+                                <small> <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icons"
+                                        style="width:20px,">
+                                    {{minPrice}}</small>
+                                <small> <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icons"
+                                        style="width:20px,">
+                                    {{selectedPrice}}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="filter-header" (click)="toggleFilter('brand')">
+                            <span>Brand</span>
+                            <i class="bi" [ngClass]="showBrand ? 'bi-chevron-down':'bi-chevron-right'">
+                            </i>
+                        </div>
+                        <div *ngIf="showBrand" class="filter-body">
+                            <div *ngFor="let brand of brands">
+                                <label>
+                                    <input type="checkbox" [value]="brand" (change)="onBrandChange($event)">
+                                    {{brand}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="filter-header" (click)="toggleFilter('volume')">
+                            <span>Volume</span>
+                            <i class="bi" [ngClass]="showVolume ? 'bi-chevron-down':'bi-chevron-right'">
+                            </i>
+                        </div>
+                        <div *ngIf="showVolume" class="filter-body">
+                            <div *ngFor="let volume of volumes">
+                                <label>
+                                    <input type="checkbox" [value]="volume" (change)="onVolumeChange($event)">
+                                    {{volume}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="filter-header" (click)="toggleFilter('occasion')">
+                            <span>Occasion</span>
+                            <i class="bi" [ngClass]="showOccasion ? 'bi-chevron-down':'bi-chevron-right'">
+                            </i>
+                        </div>
+                        <div *ngIf="showOccasion" class="filter-body">
+                            <div *ngFor="let occasion of occasions">
+                                <label>
+                                    <input type="checkbox" [value]="occasion" (change)="onOccasionChange($event)">
+                                    {{occasion}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="filter-header" (click)="toggleFilter('stock')">
+                            <span>Stock Status</span>
+                            <i class="bi" [ngClass]="showStockStatus ? 'bi-chevron-down' : 'bi-chevron-right'">
+                            </i>
+                        </div>
+                        <div class="filter-body" *ngIf="showStockStatus">
+                            <div *ngFor="let stock of stockStatusList">
+                                <label>
+                                    <input type="checkbox" [value]="stock" (change)="onStockStatusChange($event)">
+                                    {{stock}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <p>
+                        Showing {{products.length}} Products
+                    </p>
+                    <select class="form-select w-auto" (change)="sortProducts($event)">
+                        <option>Default Sorting</option>
+                        <option>Newest</option>
+                        <option>Price Low</option>
+                        <option>Price High</option>
+                    </select>
+                </div>
+                <div class="row g-4 pb-5">
+                    <div class="col-lg-4 col-md-6 d-flex" *ngFor="let product of  pagedProducts">
+                        <div class="product-card w-100" (click)="openProduct(product._id)">
+                            <span class="badge-tag" *ngIf="product.discount > 0">
+                                {{ product.discount }}% OFF
+                            </span>
+                            <div class="wishlist-icon" (click)="onWishlistClick(product._id); $event.stopPropagation()">
+                                <img src="assets/logo/heart-2.png" alt="Wishlist">
+                            </div>
+                            <img [src]="'http://localhost:5000/uploads/profile/' + product.mainImage"
+                                class="img-fluid product-img" [alt]="product.productName">
+                            <div class="product-content">
+                                <small>{{ product.brand || product.fragranceFamily }}</small>
+                                <h5>{{ product.shortName }}</h5>
+                                <p class="notes">{{ product.topNotes }}</p>
+                                <p class="volume">{{ product.volume }}</p>
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <span class="price">
+                                        <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icons"
+                                            style="width:20px,">
+                                        {{ product.sellingPrice }}
+                                    </span>
+                                    <button class="add-btn" (click)="addToCart(product._id)">
+                                        <i class="bi bi-cart me-2"></i>
+                                        ADD
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <app-pagination
+  [currentPage]="currentPage"
+  [totalPages]="totalPages"
+  (pageChange)="goToPage($event)"
+></app-pagination>
+                    <!-- <div class="d-flex justify-content-center mt-5">
+                        <ul class="pagination">
+                            <li>
+                                <a href="javascript:void(0)" (click)="previousPage()">
+                                    &laquo;
+                                </a>
+                            </li>
+                            <li *ngFor="let page of pages">
+                                <a href="javascript:void(0)" [class.active]="page===currentPage"
+                                    (click)="goToPage(page)">
+                                    {{page}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" (click)="nextPage()">
+                                    &raquo;
+                                </a>
+                            </li>
+                        </ul>
+                    </div> -->
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>

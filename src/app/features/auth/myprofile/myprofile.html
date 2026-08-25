@@ -1,0 +1,50 @@
+<div class="container-fluid profile-page">
+    <div class="row">
+        <div class="col-lg-3 col-md-4">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-lg-9 col-md-8 mt-3">
+            <div class="content-card">
+                <div class="profile-section">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="fw-bold mb-0"> Personal Information </h4>
+                    </div>
+                    <form [formGroup]="profileForm">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="mb-2 fw-bold">First Name</label>
+                                <input type="text" class="form-control profile-input" formControlName="firstName"
+                                    [readonly]="!isEdit">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="mb-2 fw-bold">Last Name</label>
+                                <input type="text" class="form-control profile-input" formControlName="lastName"
+                                    [readonly]="!isEdit">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="mb-2 fw-bold">Email Address</label>
+                                <input type="email" class="form-control profile-input" formControlName="email"
+                                    [readonly]="!isEdit">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="mb-2 fw-bold">Mobile Number</label>
+                                <input type="text" class="form-control profile-input" formControlName="mobileNo"
+                                    [readonly]="!isEdit">
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <button type="button" class="btn btn-dark me-2" *ngIf="!isEdit" (click)="editProfile()">Edit
+                            </button>
+                            <button type="button" class="btn btn-success me-2" *ngIf="isEdit"
+                                (click)="saveProfile()">Save</button>
+                            <button type="button" class="btn btn-secondary" *ngIf="isEdit"
+                                (click)="cancelEdit()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

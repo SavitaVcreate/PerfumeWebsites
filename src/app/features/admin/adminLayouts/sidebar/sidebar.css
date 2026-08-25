@@ -1,0 +1,133 @@
+.sidebar {
+  width: 266px;
+  height: 100vh;
+
+  background: #ffffff;
+
+  border-right: 1px solid #ececec;
+
+  padding: 20px;
+
+  position: relative;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  box-sizing: border-box;
+}
+
+
+/* Logo */
+
+.logo {
+  width: 100%;
+}
+
+.logo-img {
+  width: 70px;
+  height: 70px;
+
+  object-fit: cover;
+}
+
+
+/* Menu title */
+
+.menu-title {
+  display: block;
+
+  margin: 18px 15px 10px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #9ca3af;
+
+  text-transform: uppercase;
+}
+
+
+/* Navigation */
+
+.nav-link {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  color: #6A717F;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  padding: 12px 16px;
+
+  border-radius: 12px;
+
+  margin-bottom: 6px;
+
+  transition: all 0.3s ease;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+
+.nav-link i {
+  font-size: 18px;
+
+  min-width: 20px;
+}
+
+
+.nav-link:hover {
+  background: #E4B647;
+  color: #222;
+}
+
+
+.nav-link.active {
+  background: #E4B647;
+  color: #fff;
+}
+
+
+/* Logout */
+
+.logout-icon {
+  width: 25px;
+  height: 25px;
+
+  object-fit: contain;
+}
+
+
+/* Scrollbar */
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 20px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+
+/* Mobile */
+
+@media (max-width: 991px) {
+
+  .sidebar {
+    width: 266px;
+  }
+
+}

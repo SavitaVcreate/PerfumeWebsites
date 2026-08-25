@@ -1,0 +1,290 @@
+
+.privacy-policy-page {
+  background: radial-gradient( circle at top right, rgba(212, 175, 55, 0.08),  transparent 35%  ),
+ radial-gradient(circle at bottom left,  rgba(212, 175, 55, 0.05),   transparent 35% ), #0d0d0d;
+  color: #ffffff;
+  padding-top: 120px;
+}
+.privacy-header {
+  margin-bottom: 45px;
+}
+.privacy-icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d7b05a;
+  border-radius: 50%;
+  color: #d7b05a;
+  font-size: 28px;
+  background: rgba(212, 175, 55, 0.06);
+  box-shadow:  0 0 25px rgba(212, 175, 55, 0.12);
+}
+
+.privacy-header h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #d7b05a;
+}
+
+.privacy-header p {
+  margin-top: 10px;
+  color: #a9a9a9;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+.privacy-card {
+  width: 100%;
+  padding: 45px;
+  background: #171717;
+  border: 1px solid #2f2f2f;
+  border-radius: 14px;
+  box-shadow:  0 15px 50px rgba(0, 0, 0, 0.45);
+transition: all 0.3s ease;
+}
+.privacy-card:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow:  0 20px 60px rgba(0, 0, 0, 0.55);
+}
+.policy-section {
+  margin-bottom: 35px;
+  border-bottom: 1px solid #2b2b2b;
+}
+
+.policy-section h2 {
+  position: relative;
+  margin-bottom: 20px;
+  /* padding-left: 18px; */
+  color: #d7b05a;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+/* .policy-section h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 4px;
+  height: 22px;
+  background: #d7b05a;
+  border-radius: 5px;
+} */
+.policy-section p {
+  color: #c8c8c8;
+  font-size: 16px;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+.policy-section strong {
+  color: #eeeeee;
+  font-weight: 600;
+}
+
+.policy-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.policy-section li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 13px;
+  color: #c8c8c8;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.policy-section li i {
+  flex-shrink: 0;
+  margin-top: 5px;
+  color: #d7b05a;
+  font-size: 17px;
+}
+
+.policy-section a {
+  color: #d7b05a;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.policy-section a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.contact-section {
+  margin-top: 10px;
+  padding: 25px;
+  background: #202020;
+  border: 1px solid #333;
+  border-radius: 10px;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid #d7b05a;
+  color: #d7b05a;
+  font-size: 20px;
+}
+
+.contact-section h2 {
+  margin: 0 0 10px;
+color: #d7b05a;
+  font-size: 22px;
+}
+
+.contact-section p {
+  margin: 0 0 10px;
+  color: #c8c8c8;
+  line-height: 1.7;
+}
+
+.contact-email {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-email i {
+  color: #d7b05a;
+}
+
+.contact-email a {
+  color: #d7b05a;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.contact-email a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.last-updated {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid #2b2b2b;
+  color: #888;
+  font-size: 14px;
+}
+
+.last-updated i {
+  color: #d7b05a;
+}
+@media (max-width: 992px) {
+
+  .privacy-policy-page {
+    padding-top: 100px;
+  }
+
+  .privacy-card {
+    padding: 35px;
+  }
+
+  .privacy-header h1 {
+    font-size: 36px;
+  }
+
+}
+
+
+@media (max-width: 576px) {
+
+  .privacy-policy-page {
+    padding-top: 80px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .privacy-header {
+    margin-bottom: 30px;
+  }
+
+  .privacy-icon {
+    width: 55px;
+    height: 55px;
+
+    font-size: 23px;
+  }
+
+  .privacy-header h1 {
+    font-size: 30px;
+  }
+
+  .privacy-header p {
+    font-size: 15px;
+  }
+
+  .privacy-card {
+    padding: 25px 20px;
+
+    border-radius: 10px;
+  }
+
+  .policy-section {
+    margin-bottom: 25px;
+
+    padding-bottom: 25px;
+  }
+
+  .policy-section h2 {
+    font-size: 20px;
+
+    padding-left: 15px;
+  }
+
+  .policy-section h2::before {
+    width: 3px;
+
+    height: 19px;
+  }
+
+  .policy-section p,
+  .policy-section li {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .contact-section {
+    padding: 20px;
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+
+    font-size: 17px;
+  }
+
+  .contact-section h2 {
+    font-size: 20px;
+  }
+
+  .contact-email {
+    align-items: flex-start;
+  }
+
+  .last-updated {
+    font-size: 13px;
+
+    text-align: center;
+  }
+
+}

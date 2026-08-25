@@ -1,1 +1,69 @@
-<p>login works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 bg-white">
+            <div class="d-flex justify-content-center">
+                <div class="w-100 p-2" style="max-width:450px;">
+                    <div class="text-center mb-4">
+                        <img src="assets/logo/logo.jpeg" class="rounded-circle" width="90" height="90">
+                        <h4 class="fw-bold mt-3"> Log In </h4>
+                    </div>
+                    <div class="d-flex gap-2 mb-3">
+                        <button
+                            class="btn btn-light border flex-fill d-flex align-items-center justify-content-center gap-2">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+                                width="18" height="18"> <span>Google</span>
+                        </button>
+                        <button
+                            class="btn btn-light border flex-fill d-flex align-items-center justify-content-center gap-2">
+                            <i class="bi bi-facebook text-primary"></i> <span>Facebook</span>
+                        </button>
+                    </div>
+                    <div class="d-flex align-items-center my-3">
+                        <hr class="flex-grow-1 m-0">
+                        <span class="px-3 text-muted fw-semibold">Or</span>
+                        <hr class="flex-grow-1 m-0">
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium"> Email Address </label>
+                            <input type="email" class="form-control custom-input border-0" name="email"
+                                [(ngModel)]="loginData.email" placeholder="example@gmail.com" autocomplete="email"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-medium"> Password</label>
+                            <div class="input-group">
+                                <input [type]="showPassword ? 'text' : 'password'"
+                                    class="form-control custom-input border-0" name="password"
+                                    [(ngModel)]="loginData.password" placeholder="********"
+                                    autocomplete="current-password" required>
+                                <span class="input-group-text eyes-cutom border-0" (click)="togglePassword()"
+                                    style="cursor:pointer">
+                                    <i class="bi fs-5 text-dark" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'">
+                                    </i> </span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center pt-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe"> Remember me </label>
+                                </div>
+                                <a routerLink="/reset-password" class="text-primary text-decoration-none"> Reset
+                                    Password? </a>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-color text-white py-2 fw-semibold rounded-3"
+                                (click)="onLogin()"> Log In</button>
+                        </div>
+                    </form>
+                    <p class="text-center mt-2"> Don't have an account yet?<a routerLink="/auth/signup"
+                            class="text-primary text-decoration-none"> New Account </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <img src="assets/logo/perfumeLogin-1.jpeg" class="img-fluid ">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="review-page"> <app-navbar></app-navbar>
+  <div class="container-fluid px-3 px-md-4 mt-3 review">
+    <div class="review-header">
+      <h2> Ratings & Reviews </h2>
+      <div class="product-mini">
+        <span> {{ productName || 'Product' }}</span>
+        <img *ngIf="productImage" [src]="productImage" [alt]="productName || 'Product'" class="product-review-image"
+          (error)="$any($event.target).style.display='none'">
+      </div>
+    </div>
+    <div class="row g-3 mt-2">
+      <div class="col-lg-3">
+        <div class="info-card">
+          <h4> What makes a good review</h4>
+          <div class="info-section">
+            <h5> Have you used this product? </h5>
+            <p> Your review should be about your experience with the product.</p>
+          </div>
+          <div class="info-section">
+            <h5> Why review a product? </h5>
+            <p>Your valuable feedback will help fellow shoppers decide! </p>
+          </div>
+          <div class="info-section">
+            <h5> How to review a product? </h5>
+            <p>
+              Your review should include facts.
+              An honest opinion is always appreciated.
+              If you have an issue with the product
+              or service please mention it clearly.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="review-card">
+          <div class="rate-section">
+            <h4> Rate this product</h4>
+            <div class="rating-area">
+              <button type="button" class="rating-star" *ngFor="let star of [1,2,3,4,5]" (click)="selectRating(star)">
+                <i class="bi" [ngClass]="star <= selectedRating ? 'bi-star-fill selected' : 'bi-star' "></i>
+              </button>
+              <span class="rating-label" *ngIf="selectedRating > 0"> {{ getRatingText() }} </span>
+            </div>
+            <div class="current-rating" *ngIf="totalRatings > 0">
+              <span>{{ averageRating }} / 5 </span>
+              <span> ({{ totalRatings }} ratings)</span>
+            </div>
+          </div>
+          <div class="review-input-section">
+            <h4> Review this product</h4>
+            <div class="description-box">
+              <label> Description</label>
+              <textarea class="review-textarea" rows="5" placeholder="Description..."
+                [(ngModel)]="reviewText"></textarea>
+            </div>
+            <div class="title-box">
+              <label> Title<span>(optional) </span></label>
+              <input type="text" class="form-control" placeholder="Review title" [(ngModel)]="reviewTitle">
+            </div>
+            <div class="alert alert-danger mt-3" *ngIf="errorMessage"> <i
+                class="bi bi-exclamation-circle-fill me-1"></i> {{ errorMessage }}
+            </div>
+            <div class="alert alert-success mt-3" *ngIf="reviewSubmitted"> <i class="bi bi-check-circle-fill me-1"></i>
+              {{ successMessage }}
+            </div>
+            <div class="review-actions">
+              <button type="button" class="btn btn-outline-secondary" (click)="cancelReview()"><i
+                  class="bi bi-x-circle me-1"></i> Cancel
+              </button>
+              <button type="button" class="btn btn-color" [disabled]="selectedRating === 0 || submitting"
+                (click)="submitReview()">
+                <span *ngIf="submitting" class="spinner-border spinner-border-sm me-1"></span>
+                <i *ngIf="!submitting" class="bi bi-send me-1"></i>{{ submitting ? 'Submitting...' : 'Submit Review' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

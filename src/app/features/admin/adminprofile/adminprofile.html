@@ -1,0 +1,167 @@
+<div class="container-fluid">
+    <div class="row">
+      
+        <div >
+            <app-adminnav></app-adminnav>
+            <router-outlet></router-outlet>
+            <div class="row gap-4 mt-1" style="background-color: #F7F7F8;">
+                <div class="col-12">
+                    <div class="profile-update-card mt-4">
+                        <div class="profile-header">
+                            <h5>Profile Update</h5>
+                        </div>
+                        <div *ngIf="!isEditMode">
+                            <div class="card border-0 shadow-sm profile-card">
+                                <div class="card-body text-center border-bottom pb-4">
+                                    <img [src]="'http://localhost:5000' + profile.profileImage"
+                                        class="profile-image mb-3" alt="Profile Image">
+                                    <h4 class="fw-bold mb-1">
+                                        {{profile.firstName}} {{profile.lastName}}
+                                    </h4>
+                                    <p class="text-muted mb-0">
+                                        <i class="bi bi-envelope-fill me-2"></i>
+                                        {{profile.email}}
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <div class="profile-info-box">
+                                                <i class="bi bi-person-fill text-primary"></i>
+                                                <div> <label>First Name</label>
+                                                    <h6>{{profile.firstName}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="profile-info-box">
+                                                <i class="bi bi-person text-success"></i>
+                                                <div>
+                                                    <label>Last Name</label>
+                                                    <h6>{{profile.lastName}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="profile-info-box">
+                                                <i class="bi bi-envelope-fill text-danger"></i>
+                                                <div>
+                                                    <label>Email Address</label>
+                                                    <h6>{{profile.email}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="profile-info-box">
+                                                <i class="bi bi-telephone-fill text-info"></i>
+                                                <div>
+                                                    <label>Phone Number</label>
+                                                    <h6>{{profile.moblieNo}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="profile-info-box"> <i
+                                                    class="bi bi-calendar-event-fill text-warning"></i>
+                                                <div>
+                                                    <label>Date of Birth</label>
+                                                    <h6>{{profile.dob | date:'dd MMM yyyy'}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="profile-info-box">
+                                                <i class="bi bi-geo-alt-fill text-secondary"></i>
+                                                <div>
+                                                    <label>Location</label>
+                                                    <h6>{{profile.location}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="profile-info-box align-items-start">
+                                                <i class="bi bi-file-earmark-text-fill text-primary mt-1"></i>
+                                                <div>
+                                                    <label>Biography</label>
+                                                    <p class="mb-0 mt-1">
+                                                        {{profile.biography}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-end mt-4">
+                                        <button class="btn btn-warning px-4" (click)="editProfile()">
+                                            <i class="bi bi-pencil-square me-2"></i>
+                                            Edit Profile
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form *ngIf="isEditMode">
+                            <div class="profile-image-section">
+                                <img [src]="previewImage || profile.profileImage || 'assets/images/profile.png'"
+                                    class="profile-img">
+                                <button type="button" class="camera-btn" (click)="fileInput.click()">
+                                    <i class="bi bi-camera"></i>
+                                </button>
+                                <input type="file" hidden #fileInput accept="image/*" (change)="onFileSelected($event)">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control custom-input" name="firstName"
+                                        [(ngModel)]="profile.firstName">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control custom-input" name="lastName"
+                                        [(ngModel)]="profile.lastName">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control custom-input" name="password"
+                                        [(ngModel)]="profile.password">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label>Phone Number</label>
+                                    <input type="text" class="form-control custom-input" name="moblieNo"
+                                        [(ngModel)]="profile.moblieNo">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control custom-input" name="email"
+                                        [(ngModel)]="profile.email">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label>Date of Birth</label>
+                                    <input type="date" class="form-control custom-input" name="dob"
+                                        [(ngModel)]="profile.dob">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Location</label>
+                                    <input type="text" class="form-control custom-input" name="location"
+                                        [(ngModel)]="profile.location">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Biography</label>
+                                    <textarea rows="4" class="form-control custom-input" name="biography"
+                                        [(ngModel)]="profile.biography"></textarea>
+                                </div>
+                            </div>
+                            <div class="profile-actions">
+                                <button type="button" class="btn btn-color" (click)="updateProfile()">
+                                    Update Profile
+                                </button>
+                                <button type="button" class="btn btn-light" (click)="deleteImage()">
+                                    Delete
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

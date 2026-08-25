@@ -1,0 +1,405 @@
+.about-banner {
+    position: relative;
+    height: 550px;
+    background: url('/perumes/about-us-2.png') center top/cover no-repeat;
+    overflow: hidden;
+}
+
+.about-banner::before.stores-hero::before.contact-banner::before.collection-banner::before,
+.product-banner::before,
+.hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, .75), rgba(0, 0, 0, .45), rgba(0, 0, 0, .60));
+    z-index: 1;
+}
+
+.about-banner .overlay {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub-title {
+    letter-spacing: 6px;
+    color: #fff;
+    font-size: 12px;
+}
+
+.about-banner h1 {
+    color: #fff;
+    font-size: 60px;
+    font-family: 'Cormorant Garamond', serif;
+    margin: 15px 0;
+}
+
+.about-banner h1 span {
+    color: #D7B05A;
+    font-style: italic;
+}
+
+.about-banner p {
+    color: #fff;
+}
+
+.about-company {
+    background: linear-gradient(135deg, #FFF4E6, #F3D6A5, #D99A52, #8A5628);
+}
+
+.image-box {
+    position: relative;
+}
+
+.image-box img {
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+}
+
+.quote-box {
+    position: absolute;
+    right: -50px;
+    bottom: -30px;
+    width: 300px;
+    background: #d8c6a7;
+    padding: 25px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, .15);
+}
+
+.quote-box p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    color: #5a4327;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.quote-box span {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6e5b45;
+    text-transform: uppercase;
+}
+
+.section-title {
+    letter-spacing: 5px;
+    color: #fff;
+    font-size: 12px;
+}
+
+.about-company h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 68px;
+    line-height: 1.1;
+    color: #222;
+    /* margin:18px 0 30px; */
+}
+
+.about-company p {
+    color: #fff;
+    line-height: 2;
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+.stats {
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    padding-top: 35px;
+}
+
+.stats h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 42px;
+    color: #7c613d;
+    margin-bottom: 5px;
+}
+
+.stats span {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #8b8b8b;
+}
+
+.philosophy-section {
+    background: linear-gradient(135deg, #1E140D 0%, #3A2515 25%, #6A4423 60%, #A06A35 100%);
+}
+
+.section-subtitle {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #E4B647;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.philosophy-row {
+    border-top: 1px solid #E6DDD2;
+    border-bottom: 1px solid #E6DDD2;
+}
+
+.philosophy-card {
+    padding: 30px 40px;
+    border-right: 1px solid #E6DDD2;
+}
+
+.philosophy-card:last-child {
+    border-right: none;
+}
+
+.roman {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 62px;
+    color: #E4B647;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.philosophy-card h4 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    color: #fff;
+    margin-bottom: 22px;
+    font-weight: 500;
+}
+
+.philosophy-card p {
+    font-size: 15px;
+    line-height: 2;
+    color: #fff;
+    margin: 0;
+}
+
+.founders-section {
+    background: linear-gradient(135deg, #1E140D 0%, #3A2515 25%, #6A4423 60%, #A06A35 100%);
+    padding: 20px 0;
+}
+
+.section-header span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #E4B647;
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 58px;
+    color: #433424;
+    font-weight: 400;
+}
+
+
+.founder-card {
+
+    transition: .4s;
+}
+
+.founder-card img {
+
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.founder-content {
+
+    padding-top: 28px;
+}
+
+.founder-content h3 {
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.founder-content h6 {
+
+    font-size: 11px;
+    color: #E4B647;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    font-weight: 600;
+}
+
+.founder-content p {
+
+    color: #fff;
+    line-height: 2;
+    font-size: 15px;
+}
+
+.founder-card:hover {
+
+    transform: translateY(-10px);
+}
+
+.founder-card img {
+    background: linear-gradient(180deg,
+            #F7F2EA99 0%,
+            #00000000 50%,
+            #00000000 100%);
+
+    transition: .5s;
+}
+
+.founder-card:hover img {
+
+    transform: scale(1.03);
+}
+
+
+.atelier-section {
+    background: linear-gradient(135deg, #1E140D 0%, #3A2515 25%, #6A4423 60%, #A06A35 100%);
+}
+
+.section-tag {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #E4B647;
+    margin-bottom: 18px;
+}
+
+.atelier-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 72px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.1;
+}
+
+
+.info-box {
+    border-left: 2px solid #C9A86A;
+    padding-left: 18px;
+    margin-bottom: 32px;
+}
+
+.info-box h6 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #E4B647;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.info-box p {
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.atelier-image {
+    overflow: hidden;
+}
+
+.atelier-image img {
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.atelier-image:hover img {
+
+    transform: scale(1.05);
+}
+
+.video-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .2);
+}
+
+.about-video {
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+    border-radius: 25px;
+    transition: .5s ease;
+}
+
+.video-box:hover .about-video {
+    transform: scale(1.05);
+}
+
+/* Dark Overlay */
+
+.video-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, .65), rgba(0, 0, 0, .15));
+    z-index: 1;
+}
+
+/* Quote Box */
+
+.quote-box {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, .12);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-left: 4px solid #d8b36a;
+    border-radius: 15px;
+    z-index: 2;
+}
+
+.quote-box p {
+    color: #fff;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.quote-box span {
+    color: #f4d08c;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Mobile */
+
+@media(max-width:768px) {
+
+    .about-video {
+        height: 420px;
+    }
+
+    .quote-box {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        padding: 18px;
+    }
+    .quote-box p {
+        font-size: 16px;
+    }
+}

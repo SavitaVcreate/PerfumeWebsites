@@ -1,0 +1,245 @@
+<div class="container-fluid">
+    <div class="row">
+        <app-adminnav (searchChanged)="searchProductsinAdmin($event)"></app-adminnav>
+        <router-outlet></router-outlet>
+        <div class="row g-4 mt-1" style="background-color: #F7F7F8;">
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="card summary-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <p class="card-title">Total Product </p>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h2 class="number mb-0">{{totalProducts}} </h2>
+                                    <span class="text-success small fw-semibold"> <i class="bi bi-arrow-up"></i> </span>
+                                </div>
+                                <small class="text-muted">Last 7 days</small>
+                            </div>
+                            <button class="btn btn-light option-btn"><i class="bi bi-three-dots-vertical"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="card summary-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <p class="card-title">New Products List</p>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h2 class="number mb-0">{{newProducts}}</h2>
+                                    <span class="text-success small fw-semibold"> <i class="bi bi-arrow-up"></i> 20%
+                                    </span>
+                                </div>
+                                <small class="text-muted">Last 7 days</small>
+                            </div>
+                            <button class="btn btn-light option-btn"> <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="card summary-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <p class="card-title"> Out Of Stock Products </p>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h2 class="number mb-0">{{outOfStockProducts}}</h2>
+                                    <span class="text-success small fw-semibold"> <i class="bi bi-arrow-up"></i>
+                                        85.5%</span>
+                                </div>
+                                <small class="text-muted">Last 7 days</small>
+                            </div>
+                            <button class="btn btn-light option-btn"> <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6">
+                <div class="card summary-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <p class="card-title"> Avaliable Products </p>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h2 class="number mb-0">{{availableProducts}}</h2>
+                                    <span class="text-danger small fw-semibold"> <i class="bi bi-arrow-down"></i> 5%
+                                    </span>
+                                </div>
+                                <small class="text-muted">Last 7 days</small>
+                            </div>
+                            <button class="btn btn-light option-btn"> <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xl-12">
+                    <div class="card shadow-sm border-0 table-card" style="border-radius: 15px;">
+                        <div class="card-header bg-white border-0">
+                            <div class="row align-items-center mt-3">
+                                <div class="col-lg-6">
+                                    <div class="order-tabs">
+                                        <button class="tab-btn" [class.active]="selectedTab == 'all'"
+                                            (click)="showAll()"> All Products ({{totalProducts}}) </button>
+                                        <button class="tab-btn" [class.active]="selectedTab == 'instock'"
+                                            (click)="showAvailable()"> In Stock ({{availableProducts}})</button>
+                                        <button class="tab-btn" [class.active]="selectedTab == 'outofstock'"
+                                            (click)="showOutOfStock()"> Out Of Stock ({{outOfStockProducts}}) </button>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex justify-content-end">
+                                        <div class="search-box me-3">
+                                            <i class="bi bi-search"></i><input type="text" class="form-control"
+                                                placeholder="Search Products" [(ngModel)]="searchText"
+                                                (input)="searchProducts()">
+                                        </div>
+                                        <button class="btn btn-light me-2" (click)="filterAvailable()"> <i
+                                                class="bi bi-funnel"></i> </button>
+                                        <button class="btn btn-light me-2" (click)="sortProducts()"> <i
+                                                class="bi bi-arrow-down-up"></i></button>
+                                        <button class="btn btn-light" (click)="getProducts()"> <i
+                                                class="bi bi-arrow-clockwise"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 mt-4">
+                                    <div class="table-responsive">
+                                        <table class="table order-table align-middle mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Product Name</th>
+                                                    <th>Product Image</th>
+                                                    <th>Cost Price</th>
+                                                    <th>Selling Price</th>
+                                                    <th>Gender</th>
+                                                    <th>Shelf Life</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let product of paginatedProducts; let i = index"
+                                                    (click)="viewProduct(product._id)" style="cursor: pointer;">
+                                                    <td> {{ ((currentPage - 1) * itemsPerPage) + i + 1 }} </td>
+                                                    <td> {{ product.productName }} </td>
+                                                    <td> <img
+                                                            [src]="'http://localhost:5000/uploads/profile/' + product.mainImage"
+                                                            [alt]="product.productName" width="70" height="70"
+                                                            class="rounded border" style="object-fit: cover;"> </td>
+                                                    <td> <img src="/assets/logo/Currency Symbol.jpg" alt="AED"
+                                                            class="currency-icon" style="width:20px;">
+                                                        {{product.costPrice }} </td>
+                                                    <td> <img src="/assets/logo/Currency Symbol.jpg" alt="AED"
+                                                            class="currency-icon" style="width:20px;">
+                                                        {{product.sellingPrice }}</td>
+                                                    <td> {{ product.gender }} </td>
+                                                    <td> {{ product.shelfLife }} </td>
+                                                    <td>
+                                                        <span class="badge bg-success"
+                                                            *ngIf="product.stockStatus === 'In Stock'"> In Stock </span>
+                                                        <span class="badge bg-danger"
+                                                            *ngIf="product.stockStatus === 'Out Of Stock'"> Out Of
+                                                            Stock</span>
+                                                        <span class="badge bg-warning text-dark"
+                                                            *ngIf="product.stockStatus === 'Pre Order'"> Pre Order
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-danger"
+                                                            (click)="$event.stopPropagation(); deleteProduct(product._id)">
+                                                            Delete </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <app-pagination [currentPage]="currentPage" [totalPages]="totalPages"
+                                (pageChange)="changePage($event)"></app-pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade show" *ngIf="showProductModal" style="display: block;" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold"> <i class="bi bi-box-seam me-2"></i> Product Details </h5>
+                <button type="button" class="btn-close" (click)="closeProductModal()"> </button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="productLoading" class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p class="mt-3 mb-0"> Loading product details...</p>
+                </div>
+                <div *ngIf="!productLoading && selectedProduct" class="row g-4">
+                    <div class="col-md-5">
+                        <div class="border rounded p-3 text-center">
+                            <img [src]="'http://localhost:5000/uploads/profile/' + selectedProduct.mainImage"
+                                [alt]="selectedProduct.productName" class="img-fluid rounded"
+                                style="width: 100%;max-height: 350px;  object-fit: contain;">
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <h4 class="fw-bold mb-3"> {{ selectedProduct.productName }} </h4>
+                        <div class="mb-3">
+                            <small class="text-muted"> Cost Price</small>
+                            <h6 class="fw-bold">
+                                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" style="width:20px;">
+                                {{selectedProduct.costPrice }}
+                            </h6>
+                        </div>
+                        <div class="mb-3">
+                            <small class="text-muted"> Selling Price </small>
+                            <h6 class="fw-bold">
+                                <img src="/assets/logo/Currency Symbol.jpg" alt="AED" style="width:20px;">
+                                {{selectedProduct.sellingPrice }}
+                            </h6>
+                        </div>
+                        <div class="mb-3">
+                            <small class="text-muted"> Gender </small>
+                            <div class="fw-semibold"> {{ selectedProduct.gender }} </div>
+                        </div>
+                        <div class="mb-3">
+                            <small class="text-muted"> Shelf Life </small>
+                            <div class="fw-semibold"> {{ selectedProduct.shelfLife }} </div>
+                        </div>
+                        <div class="mb-3">
+                            <small class="text-muted d-block mb-1"> Stock Status </small>
+                            <span class="badge bg-success" *ngIf="selectedProduct.stockStatus === 'In Stock'">In
+                                Stock</span>
+                            <span class="badge bg-danger" *ngIf="selectedProduct.stockStatus === 'Out Of Stock'">Out
+                                OStock </span>
+                            <span class="badge bg-warning text-dark"
+                                *ngIf="selectedProduct.stockStatus === 'Pre Order'"> Pre Order </span>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                        <h6 class="fw-bold"> Description </h6>
+                        <p class="text-muted mb-0"> {{ selectedProduct.description || 'No description available.' }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeProductModal()"> Close </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="showProductModal" class="modal-backdrop fade show"></div>

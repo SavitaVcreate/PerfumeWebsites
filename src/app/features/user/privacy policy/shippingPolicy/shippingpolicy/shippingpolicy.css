@@ -1,0 +1,148 @@
+.shipping-policy-section {
+    background: #000000;
+    min-height: 100vh;
+}
+
+.policy-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #9a7b35;
+    margin-bottom: 12px;
+}
+
+.policy-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.policy-subtitle {
+    color: #777;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.shipping-policy-card {
+    padding-top: 90px;
+    background: #0000;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid #000;
+}
+
+
+
+.policy-row {
+    padding: 30px 0;
+    border-bottom: 1px solid #000;
+}
+
+.policy-row.last-row {
+    border-bottom: none;
+}
+
+.policy-icon-col {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.policy-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    /* background: #f7f1e3; */
+    color: #9a7b35;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+
+
+.policy-row h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.policy-row p {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.policy-row strong {
+    color: #fff;
+}
+
+
+
+.support-email {
+    color: #9a7b35;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.support-email:hover {
+    color: #6f5724;
+    text-decoration: underline;
+}
+
+.policy-footer-text {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.policy-footer-text strong {
+    color: #9a7b35;
+}
+@media (max-width: 767px) {
+
+    .shipping-policy-section {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+
+    .policy-title {
+        font-size: 32px;
+    }
+
+    .policy-subtitle {
+        font-size: 14px;
+    }
+
+    .shipping-policy-card {
+        padding: 10px 20px;
+        border-radius: 12px;
+    }
+
+    .policy-row {
+        padding: 25px 0;
+    }
+
+    .policy-icon-col {
+        justify-content: flex-start;
+        margin-bottom: 18px;
+    }
+
+    .policy-row h4 {
+        font-size: 18px;
+    }
+
+    .policy-row p {
+        font-size: 14px;
+    }
+
+}

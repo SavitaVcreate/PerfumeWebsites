@@ -1,1 +1,217 @@
-<p>dashboard works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div>
+      <app-adminnav></app-adminnav>
+      <router-outlet></router-outlet>
+      <div class="row g-4 mt-1" style="background-color: #F7F7F8;">
+        <div class="row g-4">
+          <div class="col-xl-3 col-lg-6 col-md-6">
+            <div class="card dashboard-card h-100">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="bi bi-wallet2 text-primary me-2"></i>
+                  <span class="card-title-text fw-bold">Income</span>
+                </div>
+                <h2 class="amount"><img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                    style="width:20px,"> {{ dashboard?.totalIncome || 0 }} </h2>
+                <div class="mt-3">
+                  <span class="fw-semibold" [ngClass]="dashboard?.incomeGrowth >= 0 ? 'text-success' : 'text-danger'">
+                    {{ dashboard?.incomeGrowth || 0 }}%</span>
+                  <i class="bi"
+                    [ngClass]="dashboard?.incomeGrowth >= 0 ? 'bi-caret-up-fill text-success' : 'bi-caret-down-fill text-danger'">
+                  </i>
+                  <span class="text-secondary ms-1"> + <img src="/assets/logo/Currency Symbol.jpg" alt="AED"
+                      class="currency-icon" style="width:20px,">
+                    {{ dashboard?.todayIncome || 0 }} Today
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-md-6">
+            <div class="card dashboard-card h-100">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="bi bi-cart3 text-success me-2"></i>
+                  <span class="card-title-text fw-bold">Orders</span>
+                </div>
+                <h2 class="amount"> {{ dashboard?.totalOrders || 0 }}</h2>
+                <div class="mt-3">
+                  <span class="fw-semibold" [ngClass]="dashboard?.orderGrowth >= 0 ? 'text-success' : 'text-danger'">{{
+                    dashboard?.orderGrowth || 0 }}%
+                  </span>
+                  <i class="bi"
+                    [ngClass]="dashboard?.orderGrowth >= 0 ? 'bi-caret-up-fill text-success': 'bi-caret-down-fill text-danger'">
+                  </i>
+                  <span class="text-secondary ms-1">+{{ dashboard?.todayOrders || 0 }} Today</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-md-6">
+            <div class="card dashboard-card h-100">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="bi bi-currency-dollar text-danger me-2"></i>
+                  <span class="card-title-text fw-bold">Profit</span>
+                </div>
+                <h2 class="amount">{{ dashboard?.totalProfit || 0 }} </h2>
+                <div class="mt-3">
+                  <span class="fw-semibold" [ngClass]="dashboard?.profitGrowth >= 0 ? 'text-success' : 'text-danger'">
+                    {{ dashboard?.profitGrowth || 0 }}%</span>
+                  <i class="bi"
+                    [ngClass]="dashboard?.profitGrowth >= 0? 'bi-caret-up-fill text-success': 'bi-caret-down-fill text-danger'"></i>
+                  <span class="text-secondary ms-1">
+                    + <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+                    {{ dashboard?.todayProfit || 0 }} Today
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-lg-6 col-md-6">
+            <div class="card dashboard-card h-100">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                  <i class="bi bi-person-fill text-purple me-2"></i>
+                  <span class="card-title-text fw-bold">Customers</span>
+                </div>
+                <h2 class="amount">{{ dashboard?.totalCustomers || 0 }}</h2>
+                <div class="mt-3">
+                  <span class="fw-semibold" [ngClass]="dashboard?.customerGrowth >= 0 ? 'text-success' : 'text-danger'">
+                    {{ dashboard?.customerGrowth || 0 }}%</span>
+                  <i class="bi"
+                    [ngClass]="dashboard?.customerGrowth >= 0  ? 'bi-caret-up-fill text-success'  : 'bi-caret-down-fill text-danger'">
+                  </i>
+                  <span class="text-secondary ms-1">+{{ dashboard?.todayCustomers || 0 }} Today</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card dashboard-card shadow-sm border-0 rounded-4 p-4 mt-4">
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                <h5 class="fw-bold mb-0"> Report for this week </h5>
+                <div class="week-toggle">
+                  <button class="toggle-btn" [class.active]="selectedPeriod=='thisWeek'"
+                    (click)="changePeriod('thisWeek')"> This Week</button>
+                  <button class="toggle-btn" [class.active]="selectedPeriod=='lastWeek'"
+                    (click)="changePeriod('lastWeek')"> Last Week</button>
+                </div>
+              </div>
+              <div class="row g-3 report-stats">
+                <div class="col stat-item" [class.active]="activeStat=='customers'"
+                  (click)="setActiveStat('customers')">
+                  <h3>{{dashboard.totalCustomers}}</h3>
+                  <span>Customers</span>
+                </div>
+                <div class="col stat-item" [class.active]="activeStat=='products'" (click)="setActiveStat('products')">
+                  <h3>{{dashboard.totalProducts}}</h3>
+                  <span>Total Products</span>
+                </div>
+                <div class="col stat-item" [class.active]="activeStat=='stock'" (click)="setActiveStat('stock')">
+                  <h3>{{dashboard.stockProducts || 0}}</h3>
+                  <span>Stock Products</span>
+                </div>
+                <div class="col stat-item" [class.active]="activeStat=='out'" (click)="setActiveStat('out')">
+                  <h3>{{dashboard.outOfStock || 0}}</h3>
+                  <span>Out Of Stock</span>
+                </div>
+                <div class="col stat-item" [class.active]="activeStat=='revenue'" (click)="setActiveStat('revenue')">
+                  <h3>{{dashboard.totalRevenue || 0}}</h3>
+                  <span>Revenue</span>
+                </div>
+              </div>
+              <div class="chart-box mt-4">
+                <canvas #weeklyChart></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card  shadow-sm border-0 rounded-4  mt-4">
+              <div class="card-header bg-white border-0">
+                <p class="text-primary"> Users in last 30 minutes</p>
+                <h3 class="fw-bold"> {{ usersCount }}</h3>
+                <p>Users per minute</p>
+              </div>
+              <div class="card-body">
+                <canvas id="lineChart"></canvas>
+              </div>
+            </div>
+            <div class="chart-body">Pie Charts
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-xl-12">
+            <div class="card shadow-sm border-0 table-card" style="border-radius:15px;">
+              <div class="card-header bg-white border-0">
+                <div class="row align-items-center mt-3">
+                  <div class="col-lg-6">
+                    <h5 class="fw-bold mb-0"> Recent Orders ({{recentOrder.length}})</h5>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="d-flex justify-content-end">
+                      <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" class="form-control" placeholder="Search recent orders">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 mt-4">
+                    <div class="table-responsive">
+                      <table class="table order-table align-middle mb-0">
+                        <thead>
+                          <tr>
+                            <th>No.</th>
+                            <th>Order ID</th>
+                            <th>Order Product</th>
+                            <th>Date</th>
+                            <th style="width: 140px;">Price</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let order of paginatedRecentOrders; let i=index">
+                            <td>{{i + 1}}</td>
+                            <td>{{order._id}}</td>
+                            <td>
+                              <div class="product-info">
+                                <img [src]="'http://localhost:5000/uploads/profile/' + order.items[0].image" width="55">
+                                <span> {{order.items[0].productName}}</span>
+                              </div>
+                            </td>
+                            <td>{{order.createdAt | date:'dd-MM-yyyy'}}</td>
+                            <td> <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                                style="width:20px,">{{order.totalAmount}}</td>
+                            <td>
+                              <span class="status"
+                                [ngClass]="{ 'pending': order.orderStatus === 'Pending',
+                          'confirmed': order.orderStatus === 'Confirmed','delivered': order.orderStatus === 'Delivered','canceled': order.orderStatus === 'Cancelled',  'shipped': order.orderStatus === 'Shipped'}">
+                                {{order.orderStatus}}</span>
+                            </td>
+                          </tr>
+                          <tr *ngIf="recentOrder.length === 0">
+                            <td colspan="7" class="text-center py-4"> No recent orders found. </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-0">
+                  <app-pagination [currentPage]="currentPage" [totalPages]="totalPages"
+                    (pageChange)="changePage($event)"></app-pagination>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

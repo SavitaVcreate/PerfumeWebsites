@@ -1,0 +1,79 @@
+<div class="sidebar bg-white">
+    <div class="logo py-2">
+        <img src="assets/logo/logo.jpeg" class="img-fluid rounded-circle logo-img" alt="Logo">
+    </div>
+    <small class="menu-title">Main Menu</small>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                class="nav-link"><i class="bi bi-house-door-fill"></i> Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/admin/order" routerLinkActive="active" class="nav-link">
+                <i class="bi bi-cart3"></i>Order Management</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/admin/customers" routerLinkActive="active" class="nav-link">
+                <i class="bi bi-people"></i> Customers </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/admin/transaction" routerLinkActive="active" class="nav-link">
+                <i class="bi bi-credit-card"></i>Transaction </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/admin/invoice" routerLinkActive="active" class="nav-link">
+                <i class="bi bi-receipt"></i> Invoice</a>
+        </li>
+    </ul>
+    <small class="menu-title mt-4">Product</small>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a routerLink="/admin/add-products" routerLinkActive="active" class="nav-link">
+                <i class="bi bi-plus-circle"></i> Add Products </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/admin/product-list" routerLinkActive="active" class="nav-link">
+                <i class="bi bi-box-seam"></i> Product List</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/admin/return-product" routerLinkActive="active" class="nav-link">
+                <i class="bi bi-box-seam"></i> Return Product </a>
+        </li>
+    </ul>
+    <small class="menu-title mt-4">Admin</small>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a routerLink="/admin/admin-profile" routerLinkActive="active" class="nav-link">
+                <i class="bi bi-person-badge"></i> Admin Profile </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/settings" routerLinkActive="active" class="nav-link">
+                <i class="bi bi-gear"></i> Settings</a>
+        </li>
+        <li class="nav-item">
+            <a routerLinkActive="active" class="nav-link">
+                <img src="/assets/logo/power-off.png" alt="logo" style="width:25px;height:25px" (click)="logout()">
+                Logout </a>
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold"> Logout </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <i class="bi bi-box-arrow-right display-3 text-warning"></i>
+                <h5 class="mt-3"> Are you sure you want to logout?</h5>
+                <p class="text-muted">You will be redirected to the login page. </p>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal"> Cancel</button>
+                <button type="button" class="btn btn-danger px-4" (click)="logout()"> Logout</button>
+            </div>
+        </div>
+    </div>
+</div>

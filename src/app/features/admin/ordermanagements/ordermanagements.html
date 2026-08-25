@@ -1,0 +1,183 @@
+<div class="container-fluid">
+  <div class="row">
+    <div>
+      <app-adminnav></app-adminnav>
+      <router-outlet></router-outlet>
+      <div class="row g-4 mt-1" style="background-color: #F7F7F8;">
+        <div class="col-xl-3 col-lg-6 col-md-6">
+          <div class="card summary-card h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="card-title">Total Orders</p>
+                  <div class="d-flex align-items-center gap-2">
+                    <h2 class="number mb-0"> {{totalOrders}} </h2>
+                    <span class="small fw-semibold" [ngClass]="totalGrowth >= 0 ? 'text-success' : 'text-danger'">
+                      <i class="bi" [ngClass]="totalGrowth >= 0 ? 'bi-arrow-up' : 'bi-arrow-down'"> </i> {{ totalGrowth
+                      }}% </span>
+                  </div>
+                  <small class="text-muted">Last 7 days</small>
+                </div>
+                <button class="btn btn-light option-btn"> <i class="bi bi-three-dots-vertical"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6">
+          <div class="card summary-card h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="card-title">Pending Orders</p>
+                  <div class="d-flex align-items-center gap-2">
+                    <h2 class="number mb-0"> {{pendingOrders}} </h2>
+                    <span class="small fw-semibold" [ngClass]="pendingGrowth >= 0 ? 'text-success' : 'text-danger'">
+                      <i class="bi" [ngClass]="pendingGrowth >= 0 ? 'bi-arrow-up' : 'bi-arrow-down'"></i> {{
+                      pendingGrowth }}%</span>
+                  </div>
+                  <small class="text-muted">Last 7 days</small>
+                </div>
+                <button class="btn btn-light option-btn"> <i class="bi bi-three-dots-vertical"></i> </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6">
+          <div class="card summary-card h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="card-title"> Delivered orders </p>
+                  <div class="d-flex align-items-center gap-2">
+                    <h2 class="number mb-0"> {{deliveredOrders}}</h2>
+                    <span class="small fw-semibold" [ngClass]="deliveredGrowth >= 0 ? 'text-success' : 'text-danger'">
+                      <i class="bi" [ngClass]="deliveredGrowth >= 0 ? 'bi-arrow-up' : 'bi-arrow-down'"> </i>{{
+                      deliveredGrowth }}%</span>
+                  </div>
+                  <small class="text-muted">Last 7 days</small>
+                </div>
+                <button class="btn btn-light option-btn"><i class="bi bi-three-dots-vertical"></i> </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 col-md-6">
+          <div class="card summary-card h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="card-title"> Canceled Orders </p>
+                  <div class="d-flex align-items-center gap-2">
+                    <h2 class="number mb-0"> {{cancelledOrders}} </h2>
+                    <span class="small fw-semibold" [ngClass]="cancelledGrowth >= 0 ? 'text-success' : 'text-danger'">
+                      <i class="bi" [ngClass]="cancelledGrowth >= 0 ? 'bi-arrow-up' : 'bi-arrow-down'"> </i> {{ cancelledGrowth }}% </span>
+                  </div>
+                  <small class="text-muted">Last 7 days</small>
+                </div>
+                <button class="btn btn-light option-btn"> <i class="bi bi-three-dots-vertical"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-xl-12">
+            <div class="card shadow-sm border-0 table-card" style="border-radius: 15px;">
+              <div class="card-header bg-white border-0">
+                <div class="row align-items-center mt-3">
+                  <div class="col-lg-6">
+                    <div class="order-tabs">
+                      <button class="tab-btn" [class.active]="selectedTab=='All'" (click)="filter('All')"> All Order
+                        ({{orders.length}})</button>
+                      <button class="tab-btn" [class.active]="selectedTab=='Delivered'" (click)="filter('Delivered')">
+                        Delivered</button>
+                      <button class="tab-btn" [class.active]="selectedTab=='Pending'" (click)="filter('Pending')">
+                        Pending</button>
+                      <button class="tab-btn" [class.active]="selectedTab=='Cancelled'" (click)="filter('Cancelled')">
+                        Cancelled</button>
+                      <button class="tab-btn" [class.active]="selectedTab=='Confirmed'" (click)="filter('Confirmed')">
+                        Confirmed </button>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="d-flex justify-content-end">
+                      <div class="search-box me-3">
+                        <i class="bi bi-search"></i> <input type="text" class="form-control"  placeholder="Search order report">
+                      </div>
+                      <button class="btn btn-light me-2"> <i class="bi bi-funnel"></i></button>
+                      <button class="btn btn-light me-2"> <i class="bi bi-arrow-down-up"></i></button>
+                      <button class="btn btn-light"> <i class="bi bi-three-dots"></i> </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xl-12 mt-4">
+                    <div class="table-responsive">
+                      <table class="table order-table align-middle mb-0">
+                        <thead>
+                          <tr>
+                            <th style="width:10px;">No.</th>
+                            <th style="width:130px;">Order ID</th>
+                            <th style="width:350px;"> Order Product</th>
+                            <th style="width:150px;">Date</th>
+                            <th style="width:150px;">Price</th>
+                            <th style="width:120px;">Payment</th>
+                            <th style="width:140px;">Status</th>
+                            <th style="width:150px;">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let order of paginatedOrders;let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{order._id}}</td>
+                            <td>
+                              <div class="product-info">
+                                <img [src]="'http://localhost:5000/uploads/profile/'+order.items[0].image">
+                                <span> {{order.items[0].productName}} </span>
+                              </div>
+                            </td>
+                            <td> {{order.createdAt | date:'dd-MM-yyyy'}}</td>
+                            <td> <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon"
+                                style="width:20px,"> {{order.totalAmount}} </td>
+                            <td><span class="payment"
+                                [ngClass]="{'paid':order.paymentStatus=='Paid','unpaid':order.paymentStatus!='Paid'}">{{order.paymentStatus}}</span>
+                            </td>
+                            <td>
+                              <span class="status"
+                                [ngClass]="{'pending':order.orderStatus=='Pending','delivered':order.orderStatus=='Delivered','canceled':order.orderStatus=='Cancelled','shipped':order.orderStatus=='Shipped','confirmed':order.orderStatus=='Confirmed'}">
+                                {{order.orderStatus}}</span>
+                            </td>
+                            <td>
+                              <button *ngIf="order.orderStatus === 'Pending'" class="btn btn-sm btn-success mb-2"
+                                (click)="confirmOrder(order)"><i class="bi bi-check-circle "></i> Confirmed </button>
+                              <button *ngIf="order.orderStatus === 'Confirmed'"
+                                class="btn btn-sm btn-primary mb-2  me-1" (click)="updateStatus(order, 'Packed')">
+                                <i class="bi bi-box-seam "></i> Packed</button>
+                              <button *ngIf="order.orderStatus === 'Packed'" class="btn btn-sm btn-info mb-2 me-1"
+                                (click)="updateStatus(order, 'Shipped')"> <i class="bi bi-truck "></i> Shipped </button>
+                              <button *ngIf="order.orderStatus === 'Shipped'" class="btn btn-sm btn-warning  me-1 mb-2"
+                                (click)="updateStatus(order, 'Out For Delivery')"><i class="bi bi-bicycle"></i> Out For
+                                Delivery </button>
+                              <button *ngIf="order.orderStatus === 'Out For Delivery'"
+                                class="btn btn-sm btn-success  me-1 mb-2" (click)="updateStatus(order, 'Delivered')">
+                                <i class="bi bi-check2-circle "></i> Delivered</button>
+                              <button class="btn btn-danger btn-sm mb-2" (click)="deleteOrder(order._id)">
+                                <i class="bi bi-trash me-1"></i> Delete </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer bg-white border-0">
+                <app-pagination [currentPage]="currentPage" [totalPages]="totalPages"
+                  (pageChange)="changePage($event)"></app-pagination>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

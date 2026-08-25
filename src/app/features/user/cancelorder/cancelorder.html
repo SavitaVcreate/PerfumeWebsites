@@ -1,0 +1,54 @@
+<div class="container py-4" *ngIf="order">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="cancel-card">
+                <div class="card-header-custom">
+                    <span class="step">1</span>
+                    EASY CANCELLATION
+                </div>
+                <div class="card-body-custom">
+                    <div class="mb-4">
+                        <label class="form-label">
+                            Reason for Cancellation
+                        </label>
+                        <select class="form-select" [(ngModel)]="reason">
+                            <option value="">
+                                Select Reason
+                            </option>
+                            <option *ngFor="let item of reasons" [value]="item">
+                                {{item}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">
+                            Comments
+                        </label>
+                        <textarea rows="5" class="form-control" [(ngModel)]="comment"
+                           placeholder="Write your comments here...">
+                        </textarea>
+                    </div>
+                    <button class="btn btn-danger px-5" (click)="confirmCancel()">
+                        Confirm Cancel Order
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Right Section -->
+        <div class="col-lg-4">
+            <div class="item-card">
+                <h4>ITEM DETAILS</h4>
+                <hr>
+                <div *ngIf="order.items?.length">
+                    <img [src]="'http://localhost:5000/uploads/profile/' + order.items[0].image" class="product-img">
+                    <h5 class="mt-3"> {{order.items[0].productName}} </h5>
+                    <p>  Qty :  {{order.items[0].quantity}}</p>
+                    <h4>
+                        <img src="/assets/logo/Currency Symbol.jpg" alt="AED" class="currency-icon" style="width:20px,">
+                        {{order.totalAmount}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
